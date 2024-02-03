@@ -15468,6 +15468,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 528833929}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &529646779 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 737230537871684702, guid: 42d53ec2643b3554092d883e38c42cbd,
+    type: 3}
+  m_PrefabInstance: {fileID: 5065338018566521340}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &529735139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52895,13 +52901,58 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3691191118931425382, guid: 42d53ec2643b3554092d883e38c42cbd,
         type: 3}
-      propertyPath: m_Icon
+      propertyPath: m_Name
+      value: GridHelper
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978386761528058822, guid: 42d53ec2643b3554092d883e38c42cbd,
+        type: 3}
+      propertyPath: _grid
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 3691191118931425382, guid: 42d53ec2643b3554092d883e38c42cbd,
+    - target: {fileID: 6978386761528058822, guid: 42d53ec2643b3554092d883e38c42cbd,
         type: 3}
-      propertyPath: m_Name
-      value: CellGenerator
+      propertyPath: _savePath
+      value: Assets/Resources/Data/Grid
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978386761528058822, guid: 42d53ec2643b3554092d883e38c42cbd,
+        type: 3}
+      propertyPath: _gridSize.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978386761528058822, guid: 42d53ec2643b3554092d883e38c42cbd,
+        type: 3}
+      propertyPath: _gridSize.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978386761528058822, guid: 42d53ec2643b3554092d883e38c42cbd,
+        type: 3}
+      propertyPath: _yandexGame
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978386761528058822, guid: 42d53ec2643b3554092d883e38c42cbd,
+        type: 3}
+      propertyPath: _gridSetting
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978386761528058822, guid: 42d53ec2643b3554092d883e38c42cbd,
+        type: 3}
+      propertyPath: _spawnPostion
+      value: 
+      objectReference: {fileID: 529646779}
+    - target: {fileID: 6978386761528058822, guid: 42d53ec2643b3554092d883e38c42cbd,
+        type: 3}
+      propertyPath: _parrentPostion
+      value: 
+      objectReference: {fileID: 529646779}
+    - target: {fileID: 6978386761528058822, guid: 42d53ec2643b3554092d883e38c42cbd,
+        type: 3}
+      propertyPath: _saveGridDataPath
+      value: Resources/Data/GridSetting
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978386761528058822, guid: 42d53ec2643b3554092d883e38c42cbd,
+        type: 3}
+      propertyPath: _currentCellsParent
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
