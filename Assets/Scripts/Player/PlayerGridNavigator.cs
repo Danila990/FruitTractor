@@ -34,7 +34,7 @@ namespace Player
                     {
                         nextIndex = new Vector2Int(_playerGridIndex.x, _playerGridIndex.y + 1);
                         nextCell = _levelGridController.GetCell(nextIndex);
-                        if (!nextCell._typeCell.Equals(TypeCell.Rock) && !nextCell._typeCell.Equals(TypeCell.Space))
+                        if (!nextCell._typeCell.Equals(TypeCell.Space))
                         {
                             _playerGridIndex = nextIndex;
                             return true;
@@ -47,7 +47,7 @@ namespace Player
                     {
                         nextIndex = new Vector2Int(_playerGridIndex.x, _playerGridIndex.y - 1);
                         nextCell = _levelGridController.GetCell(nextIndex);
-                        if (!nextCell._typeCell.Equals(TypeCell.Rock) && !nextCell._typeCell.Equals(TypeCell.Space))
+                        if (!nextCell._typeCell.Equals(TypeCell.Space))
                         {
                             _playerGridIndex = nextIndex;
                             return true;
@@ -61,7 +61,7 @@ namespace Player
                         nextIndex = new Vector2Int(_playerGridIndex.x - 1, _playerGridIndex.y);
                         nextCell = _levelGridController.GetCell(nextIndex);
 
-                        if (!nextCell._typeCell.Equals(TypeCell.Rock) && !nextCell._typeCell.Equals(TypeCell.Space))
+                        if (!nextCell._typeCell.Equals(TypeCell.Space))
                         {
                             _playerGridIndex = nextIndex;
                             return true;
@@ -75,7 +75,7 @@ namespace Player
                         nextIndex = new Vector2Int(_playerGridIndex.x + 1, _playerGridIndex.y);
                         nextCell = _levelGridController.GetCell(nextIndex);
 
-                        if (!nextCell._typeCell.Equals(TypeCell.Rock) && !nextCell._typeCell.Equals(TypeCell.Space))
+                        if (!nextCell._typeCell.Equals(TypeCell.Space))
                         {
                             _playerGridIndex = nextIndex;
                             return true;

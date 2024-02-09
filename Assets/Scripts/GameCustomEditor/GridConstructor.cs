@@ -18,20 +18,7 @@ namespace GameCustomEditor
         [Space, Header("Current Grid Setting")]
         [SerializeField] private GameObject _gridGameObject;
         [SerializeField] private GridSetting _gridSetting;
-
-        #region DublicateCurrentGrid
-        public void DublicateCurrentGrid()
-        {
-            if (_gridGameObject == null)
-            {
-                Debug.Log($"Error grid Setting: GameObject - {_gridGameObject}, GridSetting - {_gridSetting}");
-                return;
-            }
-            
-            CreateNewGridSetting();
-            SaveCurrentGridSetting();
-        }
-        #endregion
+        
         
         #region LoadGridToCreate
 
@@ -104,6 +91,8 @@ namespace GameCustomEditor
             CreateDataSettingDirectory(dataPath, gridDataPath);
             CreateGridSetting(GetCountSettings(gridDataPath));
             SaveCurrentGridSetting();
+
+            _gridSetting.GridSettingData.Timer = 60;
         }
 
         private void CreateGridSetting(int number)

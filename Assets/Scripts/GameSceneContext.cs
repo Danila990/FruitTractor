@@ -1,6 +1,7 @@
 ﻿using GameGrid;
 using GameGrid.Controllers;
 using Manager;
+using UI.Game.Basket;
 using UnityEngine;
 
 public class GameSceneContext : Singleton<GameSceneContext>
@@ -12,6 +13,7 @@ public class GameSceneContext : Singleton<GameSceneContext>
     [field: SerializeField] public FruitGridController _fruitGridController { get; private set; }
     [field: SerializeField] public PlayerSpawnController _playerSpawnController { get; private set; }
     [field: SerializeField] public GameManager _gameManager { get; private set; }
+    [field: SerializeField] public BasketFruit _basketFruit { get; private set; }
 
 
     protected override void Awake()
@@ -29,5 +31,6 @@ public class GameSceneContext : Singleton<GameSceneContext>
         _levelGridController.Init(this);
         _playerSpawnController.Init(this);
         _fruitGridController.Init(this);
+        _basketFruit.Init(this);
     }
 }

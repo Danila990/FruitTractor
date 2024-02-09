@@ -1,4 +1,5 @@
 ﻿using UnityEngine.SceneManagement;
+using YG;
 
 namespace Manager
 {
@@ -14,6 +15,7 @@ namespace Manager
         
         public void LoadGame(int indexLoad)
         {
+            if (YandexGame.savesData._maxLevel < indexLoad) return;
             _currentLoadScene = indexLoad;
             SceneManager.LoadScene("Game");
         }

@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using Enums;
 using UnityEngine;
 
@@ -7,7 +8,12 @@ namespace Player
     public class PlayerRotation : MonoBehaviour
     {
         [SerializeField] private float _rotateDuraction = 0.2f;
-        
+
+        private void Start()
+        {
+            RotateToDirection(GameSceneContext.Instance._gridSettingManager._gridSetting.GridSettingData.PlayerDirection, true);
+        }
+
         public void RotateToDirection(TypeDirection typeDirection, bool isFast = false)
         {
             float y = 0;

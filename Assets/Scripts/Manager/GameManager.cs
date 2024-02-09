@@ -16,7 +16,7 @@ namespace Manager
         
         public void SubRestartEvent(Action eventAction) => _restartEvents.Add(eventAction);
         public void SubPlayEvent(Action eventAction) => _playEvents.Add(eventAction);
-        public void SubStopEvent(Action eventAction) => _stopEvents.Add(eventAction);
+        public void SubPauseEvent(Action eventAction) => _stopEvents.Add(eventAction);
         public void SubLossEvent(Action eventAction) => _lossEvents.Add(eventAction);
         public void SubWinEvent(Action eventAction) => _winEvents.Add(eventAction);
         
@@ -28,7 +28,7 @@ namespace Manager
 
         public void RestartEvent()
         {
-            StopEvent();
+            PauseEvent();
             foreach (Action actionEvent in _restartEvents)
                 actionEvent();
         }
@@ -40,7 +40,7 @@ namespace Manager
                 actionEvent();
         }
         
-        public void StopEvent()
+        public void PauseEvent()
         {
             _isPlayGame = false;
             foreach (Action actionEvent in _stopEvents)
@@ -49,14 +49,14 @@ namespace Manager
         
         public void LossEvent()
         {
-            StopEvent();
+            PauseEvent();
             foreach (Action actionEvent in _lossEvents)
                 actionEvent();
         }
         
         public void WinEvent()
         {
-            StopEvent();
+            PauseEvent();
             foreach (Action actionEvent in _winEvents)
                 actionEvent();
         }

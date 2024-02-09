@@ -1,6 +1,4 @@
-﻿using System;
-using DG.Tweening;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Player
 {
@@ -9,14 +7,17 @@ namespace Player
         [SerializeField] private Transform[] _wheels;
         [SerializeField] private float rotationSpeed = 30f;
 
-        private bool _isMove = false;
+        private PlayerMovement _playerMovement;
 
-        public void Stop() => _isMove = false;
-        public void Play() => _isMove = true;
+        private void Start()
+        {
+            _playerMovement = GetComponent<PlayerMovement>();
+        }
 
         private void Update()
         {
-            if(!_isMove) return;
+            if(!_playerMovement._isMove) return;
+            
             foreach (Transform wheel in _wheels)
             {
                 wheel.Rotate(Vector3.right, rotationSpeed * Time.deltaTime);

@@ -34,12 +34,6 @@ namespace GameCustomEditor
             {
                 _gridConstructor.LoadGridToCreate();
             }
-            GUILayout.Space(2);
-        
-            if (GUILayout.Button("Dublicate Current Grid Setting",GUILayout.Height(30)))
-            {
-                _gridConstructor.DublicateCurrentGrid();
-            }
         }
     }
 }

@@ -17,15 +17,17 @@ namespace Player
         private PlayerRotation _rotation;
         private PlayerGridNavigator _gridNavigator;
         private TypeDirection _currentDirection, _nextDirection, _startDirection;
-        private bool _isMove = false;
         private GridCell _targetCell;
         private GameManager _gameManager;
+        private bool _isMove = false;
         
         private void Start()
         {
             _movement = GetComponent<PlayerMovement>();
             _rotation = GetComponent<PlayerRotation>();
             _gridNavigator = GetComponent<PlayerGridNavigator>();
+            
+            _movement.Init();
             
             GameSceneContext gameSceneContext = GameSceneContext.Instance;
             _gameManager = gameSceneContext._gameManager;
@@ -40,6 +42,12 @@ namespace Player
         
         public void MoveComplete()
         {
+            if (_targetCell._typeCell == TypeCell.Rock)
+            {
+                _gameManager.LossEvent();
+                return;
+            }
+            
             OnCurrentCell?.Invoke(_targetCell);
             _isMove = false;
             StartMove();

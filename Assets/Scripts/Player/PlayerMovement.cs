@@ -1,32 +1,34 @@
 ﻿using System;
 using DG.Tweening;
 using GameGrid.Controllers;
+using Manager;
 using UnityEngine;
 
 namespace Player
 {
-    public class PlayerMovement : MonoBehaviour
+    public class PlayerMovement : MonoBehaviour,IInit
     {
         private const string ID_Move_ANIMATION = "IsMove";
         
         [SerializeField] private float _moveDuraction;
         
         private PlayerController _playerController;
-        private bool _isMove = false;
         private Tween _moveTween;
-        private WheelAnimation _wheelAnimation;
+        public bool _isMove { get; private set; } = false;
 
-        private void Awake()
+        public void Init()
         {
             _playerController = GetComponent<PlayerController>();
-            _wheelAnimation = GetComponent<WheelAnimation>();
+
+            GameManager gameManager = GameSceneContext.Instance._gameManager;
+            gameManager.SubPauseEvent(PauseMove);
+            gameManager.SubPlayEvent(PlayMove);
         }
 
         public void MoveToTarget(Transform target)
         {
             if (_isMove) return;
             _isMove = true;
-            _wheelAnimation.Play();
             
             _moveTween = transform.DOMove(target.position, _moveDuraction)
                 .SetEase(Ease.Linear)
@@ -37,12 +39,14 @@ namespace Player
         {
             _moveTween.Kill();
             _isMove = false;
-            _wheelAnimation.Stop();
         }
+
+        private void PauseMove() => _moveTween.Pause();
+        
+        private void PlayMove() => _moveTween.Play();
         
         private void CallbackMove()
         {
-            _wheelAnimation.Stop();
             _isMove = false;
             _playerController.MoveComplete();
         }

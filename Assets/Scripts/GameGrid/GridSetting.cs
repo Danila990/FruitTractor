@@ -16,6 +16,7 @@ namespace GameGrid
         public Vector2Int GridSize;
         public LineData[] LineData;
         public TypeDirection PlayerDirection;
+        public int Timer;
     }
     
     [Serializable]

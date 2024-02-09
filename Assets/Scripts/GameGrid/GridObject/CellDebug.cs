@@ -31,15 +31,12 @@ namespace GameGrid.GridObject
             }
             Gizmos.DrawCube(transform.position + Vector3.up * 0.3f,new Vector3(1,0.1f,1));
 
-            if (_gridCell._typeFruit == TypeFruit.Empty || _gridCell._typeCell != TypeCell.Fruit) return;
+            if (_gridCell._typeCell != TypeCell.Fruit) return;
             
             switch (_gridCell._typeFruit)
             {
                 case TypeFruit.Banana:
                     Gizmos.color = Color.yellow;
-                    break;
-                case TypeFruit.Coconut:
-                    Gizmos.color = Color.black;
                     break;
                 case TypeFruit.GreenApple:
                     Gizmos.color = Color.green;
@@ -48,16 +45,10 @@ namespace GameGrid.GridObject
                     Gizmos.color = Color.blue;
                     break;
                 case TypeFruit.Pear:
-                    Gizmos.color = Color.red;
-                    break;
-                case TypeFruit.RedApple:
-                    Gizmos.color = Color.cyan;
+                    Gizmos.color = new Color(209,226,49);
                     break;
                 case TypeFruit.Tomato:
-                    Gizmos.color = Color.white;
-                    break;
-                case TypeFruit.Watermelon:
-                    Gizmos.color = Color.magenta;
+                    Gizmos.color = Color.red;
                     break;
             }
             Gizmos.DrawSphere(transform.position + Vector3.up * 1f,0.2f);

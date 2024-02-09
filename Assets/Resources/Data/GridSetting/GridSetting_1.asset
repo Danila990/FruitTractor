@@ -13,6 +13,17 @@ MonoBehaviour:
   m_Name: GridSetting_1
   m_EditorClassIdentifier: 
   GridSettingData:
-    GridSize: {x: 0, y: 0}
-    LineData: []
-    PlayerDirection: 0
+    GridSize: {x: 2, y: 2}
+    LineData:
+    - CellData:
+      - TypeCell: 1
+        TypeFruit: 0
+      - TypeCell: 2
+        TypeFruit: 0
+    - CellData:
+      - TypeCell: 2
+        TypeFruit: 0
+      - TypeCell: 4
+        TypeFruit: 0
+    PlayerDirection: 1
+    Timer: 5
