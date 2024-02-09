@@ -14,6 +14,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/0a/7df21956/Resources.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/9f/3dcdfa5d/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enums/TypeCell.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LevelGrid/GridSpawners/RockGridSpawner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LevelGrid/LevelGridController.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -96,6 +98,10 @@
       <workItem from="1706974109335" duration="1844000" />
       <workItem from="1707053540187" duration="5835000" />
       <workItem from="1707066266243" duration="68000" />
+      <workItem from="1707376621090" duration="10599000" />
+      <workItem from="1707389097156" duration="4873000" />
+      <workItem from="1707398138915" duration="7757000" />
+      <workItem from="1707416079400" duration="2332000" />
     </task>
     <servers />
   </component>

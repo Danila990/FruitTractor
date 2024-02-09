@@ -2,9 +2,14 @@
 {
     public enum TypeFruit
     {
+        Empty,
+        Banana,
+        Coconut,
+        GreenApple,
         Orange,
         Pear,
         RedApple,
-        Tomato
+        Tomato,
+        Watermelon
     }
 }

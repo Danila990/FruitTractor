@@ -1,8 +1,6 @@
 #if UNITY_EDITOR
-
-using Level;
-using Level.Grid;
-using Level.Grid.Setting;
+using GameGrid;
+using GameGrid.GridObject;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Windows;
@@ -13,7 +11,7 @@ namespace GameCustomEditor
     {
         [Header("New grid setting")]
         [SerializeField] private Vector2Int _gridSize;
-        [SerializeField] private Cell _cellPrefab;
+        [SerializeField] private GridCell _cellPrefab;
         [SerializeField] private float _cellsOffset = 3.2f;
         [SerializeField] private Transform _spawnPostion;
 
@@ -61,11 +59,11 @@ namespace GameCustomEditor
                 
                 for (int y = 0; y < _gridSize.y; y++)
                 {
-                    Cell cell = Instantiate(_cellPrefab, line.transform);
-                    cell.transform.position = new Vector3(x * _cellsOffset, 0, y * _cellsOffset) - middleOffset + transform.position;
+                    GridCell cell = Instantiate(_cellPrefab, line.transform);
+                    cell.transform.position = new Vector3(x * _cellsOffset, 0, y * _cellsOffset) - middleOffset + _gridGameObject.transform.position;
                     
                     cell.name = $"Cell {y}";
-                    cell.Init( _gridSetting.GridSettingData.LineData[x].CellData[y].Type);
+                    cell.Init(_gridSetting.GridSettingData.LineData[x].CellData[y].TypeCell, _gridSetting.GridSettingData.LineData[x].CellData[y].TypeFruit);
                 }
             }
         }
@@ -89,8 +87,9 @@ namespace GameCustomEditor
 
                 for (int y = 0; y < _gridSetting.GridSettingData.GridSize.y; y++)
                 {
-                    Cell cell = _gridGameObject.transform.GetChild(x).GetChild(y).gameObject.GetComponent<Cell>();
-                    _gridSetting.GridSettingData.LineData[x].CellData[y].Type = cell.Type;
+                    GridCell cell = _gridGameObject.transform.GetChild(x).GetChild(y).gameObject.GetComponent<GridCell>();
+                    _gridSetting.GridSettingData.LineData[x].CellData[y].TypeCell = cell._typeCell;
+                    _gridSetting.GridSettingData.LineData[x].CellData[y].TypeFruit = cell._typeFruit;
                 }
             }
         }
@@ -161,8 +160,8 @@ namespace GameCustomEditor
                 
                 for (int y = 0; y < _gridSize.y; y++)
                 {
-                    Cell cell = Instantiate(_cellPrefab, line.transform);
-                    cell.transform.position = new Vector3(x * _cellsOffset, 0, y * _cellsOffset) - middleOffset + transform.position;
+                    GridCell cell = Instantiate(_cellPrefab, line.transform);
+                    cell.transform.position = new Vector3(x * _cellsOffset, 0, y * _cellsOffset) - middleOffset + _gridGameObject.transform.position;
                     
                     cell.name = $"Cell {y}";
                 }

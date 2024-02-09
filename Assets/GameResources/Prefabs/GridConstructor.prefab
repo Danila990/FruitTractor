@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gridSize: {x: 5, y: 5}
-  _cellPrefab: {fileID: 8089324446174906675, guid: 701e091ac9788d94fa91dd30fecd99eb,
+  _cellPrefab: {fileID: 2132508652425422000, guid: 701e091ac9788d94fa91dd30fecd99eb,
     type: 3}
-  _cellsOffset: 3.2
-  _spawnPostion: {fileID: 737230537871684702}
-  _currentGrid: {fileID: 0}
-  _currentGridSetting: {fileID: 0}
+  _cellsOffset: 3.6
+  _spawnPostion: {fileID: 0}
+  _gridGameObject: {fileID: 0}
+  _gridSetting: {fileID: 11400000, guid: 10cf6f4f9b480084a8a934b1fd3964d9, type: 2}
