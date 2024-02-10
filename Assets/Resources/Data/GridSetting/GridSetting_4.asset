@@ -52,4 +52,4 @@ MonoBehaviour:
       - TypeCell: 0
         TypeFruit: 0
     PlayerDirection: 0
-    Timer: 14
+    Timer: 15

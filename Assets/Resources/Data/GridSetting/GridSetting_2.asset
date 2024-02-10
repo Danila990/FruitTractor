@@ -37,4 +37,4 @@ MonoBehaviour:
       - TypeCell: 2
         TypeFruit: 0
     PlayerDirection: 0
-    Timer: 10
+    Timer: 11

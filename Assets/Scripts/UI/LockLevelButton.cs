@@ -6,13 +6,13 @@ namespace UI
 {
     public class LockLevelButton : MonoBehaviour
     {
+        [SerializeField] private Button[] _buttons;
+        
         private void Start()
         {
-            Button[] buttons = GetComponentsInChildren<Button>();
-            
             for (int i = 0; i < YandexGame.savesData.LevelComplete; i++)
             {
-                buttons[i].interactable = true;
+                _buttons[i].interactable = true;
             }
         }
     }

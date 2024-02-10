@@ -6,6 +6,7 @@ namespace Player
     {
         [SerializeField] private Transform[] _wheels;
         [SerializeField] private float rotationSpeed = 30f;
+        [SerializeField] private GameObject _whellEffect;
 
         private PlayerMovement _playerMovement;
 
@@ -16,7 +17,13 @@ namespace Player
 
         private void Update()
         {
-            if(!_playerMovement._isMove) return;
+            if (!_playerMovement._isMove)
+            {
+                _whellEffect.gameObject.SetActive(false);
+                return;
+            }
+            
+            _whellEffect.gameObject.SetActive(true);
             
             foreach (Transform wheel in _wheels)
             {

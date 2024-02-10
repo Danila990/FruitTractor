@@ -35,9 +35,8 @@ namespace UI.Game
 
         private void LevelWin()
         {
-            if (YandexGame.savesData.LevelComplete == YandexGame.savesData._maxLevel) return;
-
-            if (YandexGame.savesData.LevelComplete <= SceneLoadManager.Instance._currentLoadScene)
+            if (YandexGame.savesData.LevelComplete <= SceneLoadManager.Instance._currentLoadScene 
+                && YandexGame.savesData.LevelComplete != YandexGame.savesData._maxLevel)
             {
                 YandexGame.savesData.LevelComplete++;
                 YandexGame.SaveProgress();
