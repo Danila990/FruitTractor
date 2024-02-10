@@ -13,7 +13,43 @@ MonoBehaviour:
   m_Name: GridSetting_19
   m_EditorClassIdentifier: 
   GridSettingData:
-    GridSize: {x: 0, y: 0}
-    LineData: []
+    GridSize: {x: 4, y: 4}
+    LineData:
+    - CellData:
+      - TypeCell: 3
+        TypeFruit: 0
+      - TypeCell: 2
+        TypeFruit: 0
+      - TypeCell: 2
+        TypeFruit: 2
+      - TypeCell: 3
+        TypeFruit: 0
+    - CellData:
+      - TypeCell: 2
+        TypeFruit: 4
+      - TypeCell: 3
+        TypeFruit: 0
+      - TypeCell: 2
+        TypeFruit: 4
+      - TypeCell: 0
+        TypeFruit: 0
+    - CellData:
+      - TypeCell: 2
+        TypeFruit: 0
+      - TypeCell: 0
+        TypeFruit: 0
+      - TypeCell: 3
+        TypeFruit: 0
+      - TypeCell: 2
+        TypeFruit: 0
+    - CellData:
+      - TypeCell: 4
+        TypeFruit: 0
+      - TypeCell: 0
+        TypeFruit: 0
+      - TypeCell: 2
+        TypeFruit: 2
+      - TypeCell: 0
+        TypeFruit: 0
     PlayerDirection: 0
-    Timer: 0
+    Timer: 16

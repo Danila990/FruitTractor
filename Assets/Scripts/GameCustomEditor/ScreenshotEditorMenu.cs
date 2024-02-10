@@ -17,7 +17,7 @@ namespace GameCustomEditor
 
             int i = 0;
 
-            while (File.Exists( $"{path}/{i}.png"))
+            while (File.Exists( $"{path}/Screenshot {i}.png"))
                 i++;
             
             ScreenCapture.CaptureScreenshot($"{path}/Screenshot {i}.png");

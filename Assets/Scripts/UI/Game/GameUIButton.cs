@@ -95,8 +95,12 @@ namespace UI
         private void LoadNextLevel()
         {
             _audioManager.PlayButtonAudio();
-            if (SceneLoadManager.Instance._currentLoadScene + 1 == YandexGame.savesData._maxLevel)
+            if (SceneLoadManager.Instance._currentLoadScene + 1 > YandexGame.savesData._maxLevel)
+            {
                 SceneLoadManager.Instance.LoadHome();
+                return;
+            }
+                
             
             SceneLoadManager.Instance.LoadGame(SceneLoadManager.Instance._currentLoadScene + 1);
         }

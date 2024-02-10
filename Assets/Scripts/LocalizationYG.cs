@@ -12,7 +12,7 @@ public class LocalizationYG : MonoBehaviour
 
     private void Start()
     {
-        if (YandexGame. EnvironmentData .language == "ru")
+        if (YandexGame.savesData.language == "ru")
         {
             GetComponent<TMP_Text>().text = _ru;
         }
