@@ -12,7 +12,7 @@ namespace Code
         private void Construct(GridController controller)
         {
             _gridController = controller;
-            _sizeGrid = _gridController.SizeGrid;
+            _sizeGrid = _gridController.SizeGrid - Vector2Int.one;
         }
 
         public bool TryGetNextCell(DirectionType currentDirection, Cell currentCell, out Cell returnCell)
@@ -35,7 +35,6 @@ namespace Code
             }
 
             currentIndex.Clamp(Vector2Int.zero, _sizeGrid);
-
             if(currentIndex == currentCell._gridIndex)
             {
                 returnCell = default;

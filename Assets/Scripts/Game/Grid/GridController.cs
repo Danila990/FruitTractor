@@ -20,9 +20,18 @@ namespace Code
 
         public Cell GetStartPlayerCell()
         {
-            return (from Cell cell in _lineCell
-                    where cell._cellType == CellType.PlayerStart
-                    select cell).FirstOrDefault();
+            foreach (var lineCell in _lineCell)
+            {
+                foreach (var cell in lineCell.Cells)
+                {
+                    if (cell._cellType.Equals(CellType.PlayerStart))
+                    {
+                        return cell;
+                    }
+                }
+            }
+
+            return null;
         }
 
         public List<Cell> GetFruits()

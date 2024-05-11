@@ -18,11 +18,6 @@ namespace Code
             BindFruitController();
         }
 
-        private void BindPlayer()
-        {
-
-        }
-
         private void BindGameManager()
         {
             Container

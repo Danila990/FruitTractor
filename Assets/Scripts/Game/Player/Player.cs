@@ -16,6 +16,7 @@ namespace Code
         private DirectionType _currentDirection;
         private GridController _gridController;
         private IInputService _inputService;
+        private Cell _currentCell;
 
         [Inject]
         private void Construct(GridController controller, IInputService inputService)
@@ -32,12 +33,19 @@ namespace Code
             _rotation = GetComponent<PlayerRotation>();
             _gridNavigator = GetComponent<PlayerGridNavigator>();
             _rotation.RotateToDirection(_currentDirection, true);
+            _currentCell = _gridController.GetStartPlayerCell();
         }
 
         private void MoveComplete(Cell currentCell)
         {
+            if (_movement.IsMove)
+            {
+                return;
+            }
+
             if(_gridNavigator.TryGetNextCell(_currentDirection, currentCell, out Cell returnCell))
             {
+                _currentCell = returnCell;
                 _movement.Move(returnCell);
                 _rotation.RotateToDirection(_currentDirection);
             }
@@ -46,6 +54,7 @@ namespace Code
         private void InputDirection(DirectionType typeDirection)
         {
             _currentDirection = typeDirection;
+            MoveComplete(_currentCell);
         }
 
         private void StartGame() 

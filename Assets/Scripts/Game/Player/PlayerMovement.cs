@@ -19,6 +19,7 @@ namespace Code
                 return;
             }
 
+            _targetCell = targetCell;
             _moveTween = transform.DOMove(targetCell.transform.position, _moveDuraction)
                 .SetEase(Ease.Linear)
                 .OnComplete(OnMoveComplete);

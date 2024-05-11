@@ -8,8 +8,7 @@ namespace Code
     public class Cell : MonoBehaviour
     {
         [field: SerializeField] public CellType _cellType { get; private set; } = CellType.Empty;
-
-        public Vector2Int _gridIndex { get; private set; }
+        [field: SerializeField] public Vector2Int _gridIndex { get; private set; }
 
         private GridController _controller;
 
