@@ -1,4 +1,5 @@
 ﻿using System;
+using Code;
 using Enums;
 using Manager;
 using UnityEngine;
@@ -10,11 +11,11 @@ namespace UI.Game.Basket
     {
         [SerializeField] private Image _icon;
         
-        public TypeFruit _FruitType { get; private set; }
+        public FruitType _FruitType { get; private set; }
         private Button _button;
         private BasketFruit _basketFruit;
         
-        public void SetupButton(TypeFruit fruitType, Sprite icon, BasketFruit basketFruit)
+        public void SetupButton(FruitType fruitType, Sprite icon, BasketFruit basketFruit)
         {
             _button = GetComponent<Button>();
             _button.onClick.AddListener(ClickButton);
@@ -28,7 +29,7 @@ namespace UI.Game.Basket
         
         private void ClickButton()
         {
-            AudioManager.Instance.PlayButtonAudio();
+            //AudioManager.Instance.PlayButtonAudio();
             _basketFruit.BasketFruitButtonClick(_FruitType, this);
         }
 

@@ -12,12 +12,12 @@ namespace UI.Game
 
         private void Start()
         {
-            OpenMenu(TypeMenu.TapScreen);
-            GameManager gameManager = GameSceneContext.Instance._gameManager;
+            /*OpenMenu(TypeMenu.TapScreen);
+            GameManager gameManager = GameSceneContext.Instance._gameManager;*/
             
-            gameManager.SubRestartEvent(() => OpenMenu(TypeMenu.TapScreen));
+            /*gameManager.SubRestartEvent(() => OpenMenu(TypeMenu.TapScreen));
             gameManager.SubLossEvent(() => OpenMenu(TypeMenu.Loss));
-            gameManager.SubWinEvent(LevelWin);
+            gameManager.SubWinEvent(LevelWin);*/
         }
         
         public void OpenMenu(TypeMenu typeMenu)
@@ -35,14 +35,14 @@ namespace UI.Game
 
         private void LevelWin()
         {
-            if (YandexGame.savesData.LevelComplete <= SceneLoadManager.Instance._currentLoadScene 
+            /*if (YandexGame.savesData.LevelComplete <= SceneLoadManager.Instance._currentLoadScene 
                 && YandexGame.savesData.LevelComplete != YandexGame.savesData._maxLevel)
             {
                 YandexGame.savesData.LevelComplete++;
                 YandexGame.SaveProgress();
             }
             
-            OpenMenu(TypeMenu.Win);
+            OpenMenu(TypeMenu.Win);*/
         }
     }
 

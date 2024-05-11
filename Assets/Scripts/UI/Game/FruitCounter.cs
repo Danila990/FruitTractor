@@ -13,7 +13,7 @@ namespace UI.Game
         private int _currentCount;
         private AudioManager _audioManager;
 
-        private void Start()
+        /*private void Start()
         {
             GameSceneContext gameSceneContext = GameSceneContext.Instance;
             _audioManager = AudioManager.Instance;
@@ -38,6 +38,6 @@ namespace UI.Game
         {
             _currentCount = 0;
             OutputFruit();
-        }
+        }*/
     }
 }

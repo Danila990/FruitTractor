@@ -7,8 +7,8 @@ namespace UI
     {
         public void ClickButton(int index)
         {
-            AudioManager.Instance.PlayButtonAudio();
-            SceneLoadManager.Instance.LoadGame(index);
+            /*AudioManager.Instance.PlayButtonAudio();
+            SceneLoadManager.Instance.LoadGame(index);*/
         }
     }
 }

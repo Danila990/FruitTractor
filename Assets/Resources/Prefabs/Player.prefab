@@ -94,11 +94,11 @@ GameObject:
   - component: {fileID: 2990967806744849974}
   - component: {fileID: 2295613306791222434}
   - component: {fileID: 8476434853655273034}
-  - component: {fileID: -6216727806924740981}
   - component: {fileID: 9022661653887645919}
   - component: {fileID: 7296959862274884256}
   - component: {fileID: 7840320896902313017}
   - component: {fileID: 2549913537057913637}
+  - component: {fileID: 2009409717000247297}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -179,19 +179,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-6216727806924740981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1815558412232862950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 111b5e3403aa475f9be5b5837901434d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _virtualCamera: {fileID: 6366049093272962279}
 --- !u!114 &9022661653887645919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,6 +236,27 @@ MonoBehaviour:
   - {fileID: 5549433978358703663}
   rotationSpeed: 100
   _whellEffect: {fileID: 6894594217832328028}
+--- !u!114 &2009409717000247297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815558412232862950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _components:
+  - {fileID: 9022661653887645919}
+  - {fileID: 7296959862274884256}
+  - {fileID: 7840320896902313017}
+  - {fileID: 2549913537057913637}
+  _identifier: 
+  _useSceneContext: 1
+  _context: {fileID: 0}
+  _bindType: 0
 --- !u!1 &2235174522645161580
 GameObject:
   m_ObjectHideFlags: 0

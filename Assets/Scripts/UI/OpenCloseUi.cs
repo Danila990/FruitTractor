@@ -10,7 +10,7 @@ namespace UI
 
         public void OpenClose()
         {
-            AudioManager.Instance.PlayButtonAudio();
+            //AudioManager.Instance.PlayButtonAudio();
             _close.SetActive(false);
             _open.SetActive(true);
         }

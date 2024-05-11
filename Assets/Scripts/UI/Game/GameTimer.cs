@@ -6,7 +6,7 @@ namespace UI.Game
 {
     public class GameTimer : MonoBehaviour
     {
-        [SerializeField] private TMP_Text _timerText;
+        /*[SerializeField] private TMP_Text _timerText;
         
         private int _levelTime;
         private int _currentTime;
@@ -43,6 +43,6 @@ namespace UI.Game
         {
             _currentTime = _levelTime;
             OutputTimer();
-        }
+        }*/
     }
 }

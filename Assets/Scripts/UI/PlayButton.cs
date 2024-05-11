@@ -8,8 +8,8 @@ namespace UI
     {
         public void LoadGame()
         {
-            AudioManager.Instance.PlayButtonAudio();
-            SceneLoadManager.Instance.LoadGame(YandexGame.savesData.LevelComplete);
+            //AudioManager.Instance.PlayButtonAudio();
+            //SceneLoadManager.Instance.LoadGame(YandexGame.savesData.LevelComplete);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace UI
         private Image _icon;
         private AudioManager _audioManager;
 
-        private void Start()
+        /*private void Start()
         {
             _icon = GetComponent<Image>();
             _disableSprite = _icon.sprite;
@@ -38,6 +38,6 @@ namespace UI
                 _icon.sprite = _disableSprite;
                 _audioManager.SetMutBackgroundAudio(true);
             }
-        }
+        }*/
     }
 }

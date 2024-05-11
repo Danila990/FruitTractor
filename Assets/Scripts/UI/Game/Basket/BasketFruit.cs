@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using Code;
 using Enums;
 using UnityEngine;
 
 namespace UI.Game.Basket
 {
-    public class BasketFruit : MonoBehaviour, IInitGameSceneContext
+    public class BasketFruit : MonoBehaviour
     {
         [Serializable]
         private class BasketData
         {
-            [field: SerializeField] public TypeFruit _Type { get; private set; }
+            [field: SerializeField] public FruitType _Type { get; private set; }
             [field: SerializeField] public Sprite _Icon { get; private set; }
         }
         
@@ -18,17 +19,17 @@ namespace UI.Game.Basket
         [SerializeField] private Transform _parentButton;
         [SerializeField] private BasketData[] _basketDatas;
         
-        public TypeFruit _currentFruitType { get; private set; }
+        public FruitType _currentFruitType { get; private set; }
         private List<BasketFruitButton> _basketFruitsButton = new List<BasketFruitButton>();
         
-        public void Init(GameSceneContext gameSceneContext)
+        public void Init()
         {
-            gameSceneContext._gameManager.SubRestartEvent(Restart);
+           /* gameSceneContext._gameManager.SubRestartEvent(Restart);
             CreateButtons(gameSceneContext._fruitGridController.GetFruitsType());
-            Restart();
+            Restart();*/
         }
         
-        public void BasketFruitButtonClick(TypeFruit typeFruit, BasketFruitButton button)
+        public void BasketFruitButtonClick(FruitType typeFruit, BasketFruitButton button)
         {
             foreach (BasketFruitButton fruitButton in _basketFruitsButton)
                 fruitButton.ChangeInteractable(true);
@@ -37,19 +38,19 @@ namespace UI.Game.Basket
             _currentFruitType = typeFruit;
         }
 
-        private void CreateButtons(List<TypeFruit> typeFruit)
+        private void CreateButtons(List<FruitType> typeFruit)
         {
-            foreach (TypeFruit type in typeFruit)
+            foreach (FruitType type in typeFruit)
             {
                 BasketData data = GetButtonData(type);
                 
                 BasketFruitButton basketFruitButton = Instantiate(_fruitButtonPrefab, _parentButton);
-                basketFruitButton.SetupButton(data._Type, data._Icon, this);
+                //basketFruitButton.SetupButton(data._Type, data._Icon, this);
                 _basketFruitsButton.Add(basketFruitButton);
             }
         }
         
-        private BasketData GetButtonData(TypeFruit needType)
+        private BasketData GetButtonData(FruitType needType)
         {
             foreach (BasketData data in _basketDatas)
             {
