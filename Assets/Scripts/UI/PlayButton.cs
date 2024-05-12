@@ -1,15 +1,23 @@
-﻿using Manager;
-using UnityEngine;
-using YG;
+﻿using YG;
+using Zenject;
 
-namespace UI
+namespace Code
 {
-    public class PlayButton : MonoBehaviour
+    public class PlayButton : UIButton
     {
-        public void LoadGame()
+        private SceneLoader _sceneLoader;
+
+        [Inject]
+        private void Construct(SceneLoader sceneLoader)
         {
-            //AudioManager.Instance.PlayButtonAudio();
-            //SceneLoadManager.Instance.LoadGame(YandexGame.savesData.LevelComplete);
+            _sceneLoader = sceneLoader;
+        }
+
+        protected override void OnClick()
+        {
+            base.OnClick();
+
+            _sceneLoader.LoadGame(YandexGame.savesData.CurrentLevel);
         }
     }
 }

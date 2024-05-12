@@ -4,7 +4,7 @@ using Manager;
 using UnityEngine;
 using YG;
 
-namespace UI.Game
+namespace Code
 {
     public class MenuController : MonoBehaviour
     {

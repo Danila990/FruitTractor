@@ -5,14 +5,18 @@ namespace Code
     public class CellColor : MonoBehaviour
     {
         [SerializeField] private Color _color = Color.black;
+        [SerializeField] private bool _changeColor = true;
 
         private void Start()
         {
-            GetComponentInChildren<MeshRenderer>().material.color = _color;
+            if(_changeColor)
+            {
+                GetComponentInChildren<MeshRenderer>().material.color = _color;
+            }
         }
 
 #if UNITY_EDITOR
-        [SerializeField] Vector3 _size = new Vector3(1, 0.1f, 1);
+        [Header("Gizmos setting"),SerializeField] Vector3 _size = new Vector3(1, 0.1f, 1);
         [SerializeField] private float _offsetY = 1f;
 
         private void OnDrawGizmos()

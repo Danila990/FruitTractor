@@ -3,7 +3,7 @@ using Manager;
 using TMPro;
 using UnityEngine;
 
-namespace UI.Game
+namespace Code
 {
     public class FruitCounter : MonoBehaviour
     {

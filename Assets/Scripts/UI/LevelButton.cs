@@ -1,14 +1,25 @@
-﻿using Manager;
-using UnityEngine;
+﻿using Code;
+using Zenject;
 
-namespace UI
+namespace Code
 {
-    public class LevelButton : MonoBehaviour
+    public class LevelButton : UIButton
     {
-        public void ClickButton(int index)
+        public int LoadSceneIndex;
+
+        private SceneLoader _sceneLoader;
+
+        [Inject]
+        private void Construct(SceneLoader sceneLoader)
         {
-            /*AudioManager.Instance.PlayButtonAudio();
-            SceneLoadManager.Instance.LoadGame(index);*/
+            _sceneLoader = sceneLoader;
+        }
+
+        protected override void OnClick()
+        {
+            base.OnClick();
+
+            _sceneLoader.LoadGame(LoadSceneIndex);
         }
     }
 }

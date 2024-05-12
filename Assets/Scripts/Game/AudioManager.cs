@@ -22,7 +22,7 @@ namespace Manager
             _music.mute = state;
         }
 
-        private void Play(int id)
+        public void Play(int id)
         {
             SoundData soundData = GetSoundData(id);
             _sound.PlayOneShot(soundData._audioClip, soundData._volume);

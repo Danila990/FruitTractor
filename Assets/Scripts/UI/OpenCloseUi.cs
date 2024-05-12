@@ -1,16 +1,18 @@
-﻿using Manager;
+﻿using Code;
+using Manager;
 using UnityEngine;
 
-namespace UI
+namespace Code
 {
-    public class OpenCloseUi : MonoBehaviour
+    public class OpenCloseUi : UIButton
     {
         [SerializeField] private GameObject _open;
         [SerializeField] private GameObject _close;
 
-        public void OpenClose()
+        protected override void OnClick()
         {
-            //AudioManager.Instance.PlayButtonAudio();
+            base.OnClick();
+
             _close.SetActive(false);
             _open.SetActive(true);
         }

@@ -10,7 +10,7 @@ namespace YG
         public string language = "ru";
         public bool promptDone;
         
-        public int _maxLevel { get; private set; } = 30;
-        public int LevelComplete = 1;
+        public int _maxLevel { get; private set; } = 12;
+        public int CurrentLevel = 1;
     }
 }

@@ -4,7 +4,6 @@ using Zenject;
 
 namespace Code
 {
-    [RequireComponent(typeof(CellColor))]
     public class Cell : MonoBehaviour
     {
         [field: SerializeField] public CellType _cellType { get; private set; } = CellType.Empty;

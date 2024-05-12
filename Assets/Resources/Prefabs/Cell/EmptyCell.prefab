@@ -130,7 +130,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7abfe1f321cc912488f13a779843ec54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color: {r: 0, g: 0, b: 0, a: 1}
+  _color: {r: 0.3529412, g: 0.3137255, b: 0.2627451, a: 1}
+  _changeColor: 0
   _size: {x: 2.5, y: 0.1, z: 2.5}
   _offsetY: 0.3
 --- !u!114 &3747113948509328736
@@ -146,6 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <_cellType>k__BackingField: 1
+  <_gridIndex>k__BackingField: {x: 0, y: 0}
 --- !u!114 &8180346515824457092
 MonoBehaviour:
   m_ObjectHideFlags: 0

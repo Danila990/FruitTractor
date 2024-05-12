@@ -3,7 +3,7 @@ using Manager;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace Code
 {
     public class AudioButton : MonoBehaviour
     {
