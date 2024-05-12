@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5540754814095088794}
   - component: {fileID: 7376116335276797563}
   - component: {fileID: 7752362390503437793}
-  - component: {fileID: 4001818461760189132}
+  - component: {fileID: 2396986502469215787}
   m_Layer: 0
   m_Name: Tomato
   m_TagString: Untagged
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4001818461760189132
+--- !u!114 &2396986502469215787
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,10 +93,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5895439249252827290}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b60e44fccdc49eca2d5fd4c0dca92a6, type: 3}
+  m_Script: {fileID: 11500000, guid: c6242a2ee1ae6b842bffa9bb1af8840f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _effect: {fileID: 198157190901592544, guid: ab06b932825253549b1f3906293d46e4, type: 3}
+  _effect: {fileID: 0}
   _targety: 2
-  _duraction: 1
-  <_type>k__BackingField: 4
+  _duraction: 0.5
+  <_fruitType>k__BackingField: 0

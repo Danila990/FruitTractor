@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Zenject;
 
 namespace Code
 {
-    public class GridController : MonoBehaviour
+    public class GridController : MonoBehaviour, IInitializable
     {
         public event Action<Cell> OnCellEvent;
 
@@ -13,12 +14,21 @@ namespace Code
 
         public Vector2Int SizeGrid => new Vector2Int(_lineCell.Count, _lineCell[0].Cells.Count);
 
+        public Cell _playerCell { get; private set; }
+        public Dictionary<Vector2Int, Fruit> _fruits { get; private set; } = new Dictionary<Vector2Int, Fruit>();
+
+        public void Initialize()
+        {
+            _playerCell = GetStartPlayerCell();
+            _fruits = GetFruits();
+        }
+
         public void CellEventInvoke(Cell cell)
         {
             OnCellEvent?.Invoke(cell);
         }
 
-        public Cell GetStartPlayerCell()
+        private Cell GetStartPlayerCell()
         {
             foreach (var lineCell in _lineCell)
             {
@@ -34,12 +44,21 @@ namespace Code
             return null;
         }
 
-        public List<Cell> GetFruits()
+        private Dictionary<Vector2Int, Fruit> GetFruits()
         {
-            return _lineCell
-                    .SelectMany(lineCell => lineCell.Cells)
-                    .Where(cell => cell._cellType == CellType.Fruit)
-                    .ToList();
+            Dictionary<Vector2Int, Fruit> dictionary = new Dictionary<Vector2Int, Fruit>();
+            foreach (var lineCell in _lineCell)
+            {
+                foreach (var cell in lineCell.Cells)
+                {
+                    if (cell._cellType.Equals(CellType.Fruit))
+                    {
+                        dictionary.Add(cell._gridIndex, cell.GetComponentInChildren<Fruit>());
+                    }
+                }
+            }
+
+            return dictionary;
         }
 
         public Cell GetCell(Vector2Int cellIndex)

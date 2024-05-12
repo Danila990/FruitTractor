@@ -7,7 +7,7 @@ namespace Code
 {
     public class UIButton : MonoBehaviour
     {
-        private AudioManager _audioManager;
+        protected AudioManager _audioManager;
 
         [Inject]
         private void Construct(AudioManager audioManager)

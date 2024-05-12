@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2197394172258545762}
   - component: {fileID: 2553895795360651354}
   - component: {fileID: 3526988203475730313}
-  - component: {fileID: 4207562271163304841}
+  - component: {fileID: 8807968394144930621}
   m_Layer: 0
   m_Name: Orange
   m_TagString: Untagged
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4207562271163304841
+--- !u!114 &8807968394144930621
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,10 +93,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6417850076500781783}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b60e44fccdc49eca2d5fd4c0dca92a6, type: 3}
+  m_Script: {fileID: 11500000, guid: c6242a2ee1ae6b842bffa9bb1af8840f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _effect: {fileID: 198157190901592544, guid: f170768d28f43a346bb3e3aedc8e67b9, type: 3}
   _targety: 2
-  _duraction: 1
-  <_type>k__BackingField: 2
+  _duraction: 0.5
+  <_fruitType>k__BackingField: 2

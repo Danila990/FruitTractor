@@ -9,6 +9,7 @@ namespace Code
         [SerializeField] private bool _testPcInput = true;
         [SerializeField] private GridController _gridController;
         [SerializeField] private LevelTimer _levelTimer;
+        [SerializeField] private BasketFruitController _basketFruitController;
 
         public override void InstallBindings()
         {
@@ -18,6 +19,15 @@ namespace Code
             BindGameManager();
             BindLevelTimer();
             BindFruitController();
+            BindBasketFruitController();
+        }
+
+        private void BindBasketFruitController()
+        {
+            Container
+                .Bind<BasketFruitController>()
+                .FromInstance(_basketFruitController)
+                .AsSingle();
         }
 
         private void BindLevelTimer()

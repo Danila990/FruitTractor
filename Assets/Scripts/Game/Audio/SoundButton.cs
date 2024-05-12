@@ -12,8 +12,6 @@ namespace Code
 
         private Sprite _onState;
 
-        private AudioManager _audioManager;
-
         [Inject]
         private void Construct(AudioManager audioManager)
         {

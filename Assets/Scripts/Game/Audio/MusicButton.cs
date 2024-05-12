@@ -11,7 +11,6 @@ namespace Code
         [SerializeField] private Image _image;
 
         private Sprite _onState;
-        private AudioManager _audioManager;
 
         [Inject]
         private void Construct(AudioManager audioManager)

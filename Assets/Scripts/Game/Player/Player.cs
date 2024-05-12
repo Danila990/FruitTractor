@@ -7,7 +7,6 @@ namespace Code
     [RequireComponent(typeof(PlayerMovement), typeof(PlayerRotation), typeof(PlayerGridNavigator))]
     public class Player : MonoBehaviour
     {
-        [SerializeField] private GameObject _virtualCamera;
         [SerializeField] private DirectionType _startDirection;
 
         private PlayerMovement _movement;
@@ -33,7 +32,7 @@ namespace Code
             _rotation = GetComponent<PlayerRotation>();
             _gridNavigator = GetComponent<PlayerGridNavigator>();
             _rotation.RotateToDirection(_currentDirection, true);
-            _currentCell = _gridController.GetStartPlayerCell();
+            _currentCell = _gridController._playerCell;
         }
 
         private void MoveComplete(Cell currentCell)
@@ -57,13 +56,9 @@ namespace Code
             MoveComplete(_currentCell);
         }
 
-        private void StartGame() 
-        {
-            _virtualCamera.SetActive(true);
-        }
-        
         private void OnDestroy()
         {
+            _gridController.OnCellEvent -= MoveComplete;
             _inputService.OnInputDirection -= InputDirection;
         }
     }

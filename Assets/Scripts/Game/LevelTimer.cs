@@ -12,6 +12,7 @@ namespace Code
         [SerializeField] private int _levelTime;
 
         private GameManager _gameManager;
+
         public int _currentTime { get; private set; }
 
         [Inject]
@@ -19,6 +20,13 @@ namespace Code
         {
             _gameManager = gameManager;
             _currentTime = _levelTime;
+        }
+
+        public void ReviewTimer(int addTime)
+        {
+            _currentTime = addTime;
+            OnLevelTime?.Invoke(_currentTime);
+            StartTimer();
         }
 
         public void StartTimer()
