@@ -1,7 +1,5 @@
 ﻿using System;
 using Code;
-using Enums;
-using Manager;
 using UnityEngine;
 using UnityEngine.UI;
 

@@ -6,8 +6,9 @@ namespace Code
 {
     public class GameInstaller : MonoInstaller
     {
-        [SerializeField] private  bool _testPcInput = true;
+        [SerializeField] private bool _testPcInput = true;
         [SerializeField] private GridController _gridController;
+        [SerializeField] private LevelTimer _levelTimer;
 
         public override void InstallBindings()
         {
@@ -15,7 +16,16 @@ namespace Code
             BindInputService();
             BindControllers();
             BindGameManager();
+            BindLevelTimer();
             BindFruitController();
+        }
+
+        private void BindLevelTimer()
+        {
+            Container
+                .Bind<LevelTimer>()
+                .FromInstance(_levelTimer)
+                .AsSingle();
         }
 
         private void BindGameManager()

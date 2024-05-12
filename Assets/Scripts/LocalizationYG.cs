@@ -1,24 +1,24 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using YG;
 
-public class LocalizationYG : MonoBehaviour
+namespace Code
 {
-    [SerializeField] private string _ru;
-    [SerializeField] private string _en;
-
-    private void Start()
+    public class LocalizationYG : MonoBehaviour
     {
-        if (YandexGame.savesData.language == "ru")
+        [SerializeField] private string _ru;
+        [SerializeField] private string _en;
+
+        private void Start()
         {
-            GetComponent<TMP_Text>().text = _ru;
-        }
-        else
-        {
-            GetComponent<TMP_Text>().text = _en;
+            if (YandexGame.savesData.language == "ru")
+            {
+                GetComponent<TMP_Text>().text = _ru;
+            }
+            else
+            {
+                GetComponent<TMP_Text>().text = _en;
+            }
         }
     }
 }

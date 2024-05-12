@@ -18,5 +18,10 @@ namespace Code
             }
             SceneManager.LoadScene(indexLoad);
         }
+
+        public void RestartScene()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }

@@ -7,11 +7,14 @@ namespace Code
     {
         private List<Fruit> _fruits = new List<Fruit>();
         private GridController _gridController;
+        private GameManager _gameManager;
+        private int _countFruit;
 
         [Inject]
-        private void Construct(GridController controller)
+        private void Construct(GridController controller, GameManager gameManager)
         {
             _gridController = controller;
+            _gameManager = gameManager;
             _gridController.OnCellEvent += CheckFruit;
         }
 
@@ -26,6 +29,8 @@ namespace Code
             {
                 _fruits.Add(cell.GetComponentInChildren<Fruit>());
             }
+
+            _countFruit = _fruits.Count;
         }
 
         private void CheckFruit(Cell cell)
@@ -40,7 +45,13 @@ namespace Code
                 if(fruit.Equals(cell) && fruit.gameObject.activeInHierarchy)
                 {
                     fruit.DeactivateFruit();
+                    _countFruit -= 1;
                 }
+            }
+
+            if(_countFruit == 0)
+            {
+                _gameManager.WinGame();
             }
         }
     }

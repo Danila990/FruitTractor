@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Code;
-using Enums;
 using UnityEngine;
 
 namespace UI.Game.Basket

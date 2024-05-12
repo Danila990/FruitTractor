@@ -1,19 +1,27 @@
 ﻿using System;
 using UnityEngine;
+using Zenject;
 
 namespace Code
 {
     public class GameManager
     {
-        public event Action OnLoss;
-        public event Action OnWin;
-        public event Action OnStart;
-
         public bool _isPlayGame => Time.timeScale != 0;
+
+        private SceneLoader _sceneLoader;
+        private PagesController _pagesController;
+
+        [Inject]
+        private void Construct(SceneLoader sceneLoader, PagesController pagesController)
+        {
+            _sceneLoader = sceneLoader;
+            _pagesController = pagesController;
+        }
 
         public void RestartGame()
         {
-            
+            PlayGame();
+            _sceneLoader.RestartScene();
         }
         
         public void PlayGame()
@@ -26,22 +34,16 @@ namespace Code
             Time.timeScale = 0;
         }
         
-        public void StartGame()
-        {
-            PlayGame();
-            OnStart?.Invoke();
-        }
-
-        public void LossEvent()
+        public void LossGame()
         {
             PauseGame();
-            OnLoss?.Invoke();
+            _pagesController.ShowPage("Loss");
         }
         
-        public void WinEvent()
+        public void WinGame()
         {
             PauseGame();
-            OnWin?.Invoke();
+            _pagesController.ShowPage("Win");
         }
     }
 }
