@@ -9,17 +9,16 @@ namespace Code
     public class GameManager
     {
         public event Action OnStartGame;
+        public event Action OnLossGame;
+        public event Action OnWinGame;
+        public event Action OnRewGame;
 
         private SceneLoader _sceneLoader;
-        private PagesController _pagesController;
-        private LevelTimer _levelTimer;
 
         [Inject]
-        private void Construct(SceneLoader sceneLoader, PagesController pagesController, LevelTimer levelTimer)
+        private void Construct(SceneLoader sceneLoader)
         {
-            _levelTimer = levelTimer;
             _sceneLoader = sceneLoader;
-            _pagesController = pagesController;
         }
 
         public void StartGame()
@@ -53,27 +52,35 @@ namespace Code
         public void LossGame()
         {
             PauseGame();
-            _pagesController.ShowPage("Loss");
+            OnLossGame?.Invoke();
         }
         
         public void WinGame()
         {
+            SaveProgress();
             PauseGame();
-            _pagesController.ShowPage("Win");
+            OnWinGame?.Invoke();
+            
+        }
+
+        private void OnShowAd(int index)
+        {
+            if(index == 0)
+            {
+                YandexGame.RewardVideoEvent -= OnShowAd;
+                PlayGame();
+                OnRewGame?.Invoke();
+            }
+        }
+
+        private void SaveProgress()
+        {
             SavesYG savesYG = YandexGame.savesData;
             if (savesYG.CurrentLevel < savesYG._maxLevel && savesYG.CurrentLevel == SceneManager.GetActiveScene().buildIndex)
             {
                 savesYG.CurrentLevel += 1;
                 YandexGame.SaveProgress();
             }
-        }
-
-        private void OnShowAd(int index)
-        {
-            YandexGame.RewardVideoEvent -= OnShowAd;
-            _levelTimer.ReviewTimer(5);
-            _pagesController.ShowPage("GUI");
-            PlayGame();
         }
     }
 }

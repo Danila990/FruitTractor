@@ -9,48 +9,27 @@ namespace Code
         [SerializeField] private bool _testPcInput = true;
         [SerializeField] private GridController _gridController;
         [SerializeField] private LevelTimer _levelTimer;
+        [SerializeField] private GamePagesController _pagesController;
         [SerializeField] private BasketFruitController _basketFruitController;
 
         public override void InstallBindings()
         {
             BindBootstrap();
+            BindGame();
             BindInputService();
             BindControllers();
-            BindGameManager();
-            BindLevelTimer();
-            BindFruitController();
-            BindBasketFruitController();
         }
 
-        private void BindBasketFruitController()
-        {
-            Container
-                .Bind<BasketFruitController>()
-                .FromInstance(_basketFruitController)
-                .AsSingle();
-        }
-
-        private void BindLevelTimer()
-        {
-            Container
-                .Bind<LevelTimer>()
-                .FromInstance(_levelTimer)
-                .AsSingle();
-        }
-
-        private void BindGameManager()
+        private void BindGame()
         {
             Container
                 .Bind<GameManager>()
                 .FromNew()
                 .AsSingle();
-        }
 
-        private void BindFruitController()
-        {
             Container
-                .Bind<FruitController>()
-                .FromNew()
+                .Bind<LevelTimer>()
+                .FromInstance(_levelTimer)
                 .AsSingle();
         }
 
@@ -59,6 +38,21 @@ namespace Code
             Container
                 .Bind<GridController>()
                 .FromInstance(_gridController)
+                .AsSingle();
+
+            Container
+                .Bind<FruitController>()
+                .FromNew()
+                .AsSingle();
+
+            Container
+                .Bind<PagesController>()
+                .FromInstance(_pagesController)
+                .AsSingle();
+
+            Container
+                .Bind<BasketFruitController>()
+                .FromInstance(_basketFruitController)
                 .AsSingle();
         }
 

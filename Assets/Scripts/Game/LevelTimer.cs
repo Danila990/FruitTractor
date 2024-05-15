@@ -9,7 +9,8 @@ namespace Code
     {
         public event Action<int> OnLevelTime;
 
-        [SerializeField] private int _levelTime;
+        [SerializeField] private int _levelTime = 10;
+        [SerializeField] private int _rewTime = 5;
 
         private GameManager _gameManager;
         private int _currentTime;
@@ -19,6 +20,7 @@ namespace Code
         {
             _gameManager = gameManager;
             _gameManager.OnStartGame += StartTimer;
+            _gameManager.OnRewGame += OnRewGame;
             _currentTime = _levelTime;
         }
 
@@ -27,9 +29,15 @@ namespace Code
             OnLevelTime?.Invoke(_currentTime);
         }
 
-        public void ReviewTimer(int addTime)
+        private void OnDestroy()
         {
-            _currentTime = addTime;
+            _gameManager.OnStartGame -= StartTimer;
+            _gameManager.OnRewGame -= OnRewGame;
+        }
+
+        private void OnRewGame()
+        {
+            _currentTime += _rewTime;
             OnLevelTime?.Invoke(_currentTime);
             StartTimer();
         }

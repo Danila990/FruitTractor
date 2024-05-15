@@ -12,7 +12,7 @@ namespace Code
         private Sprite _onState;
 
         [Inject]
-        private void Construct(AudioManager audioManager)
+        private void Construct(AudioController audioManager)
         {
             _audioManager = audioManager;
         }
@@ -21,7 +21,6 @@ namespace Code
         {
             base.Start();
 
-            _image = GetComponent<Image>();
             _onState = _image.sprite;
             ChangeSprite();
         }

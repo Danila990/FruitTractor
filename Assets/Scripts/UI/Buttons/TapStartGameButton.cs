@@ -1,12 +1,9 @@
-﻿using UnityEngine;
-using Zenject;
+﻿using Zenject;
 
 namespace Code
 {
     public class TapStartGameButton : UIButton
     {
-        [SerializeField] private string _pageId = "GUI";
-
         private PagesController _pagesController;
         private GameManager _gameManager;
 
@@ -21,7 +18,7 @@ namespace Code
         {
             base.OnClick();
 
-            _pagesController.ShowPage(_pageId);
+            _pagesController.ShowPage(PageType.Game_GUI);
             _gameManager.StartGame();
         }
     }

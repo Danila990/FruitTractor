@@ -3,7 +3,7 @@ using Zenject;
 
 namespace Code
 {
-    public class PlayButton : UIButton
+    public class LoadCurrentLevelButton : UIButton
     {
         private SceneLoader _sceneLoader;
 

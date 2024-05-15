@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Code
 {
-    public class AudioManager : MonoBehaviour
+    public class AudioController : MonoBehaviour
     {
         [SerializeField] private SoundData[] _sounds;
         [SerializeField] private AudioSource _sound;

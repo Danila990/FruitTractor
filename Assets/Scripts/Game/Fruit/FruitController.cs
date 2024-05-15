@@ -10,12 +10,12 @@ namespace Code
 
         private GridController _gridController;
         private GameManager _gameManager;
-        private AudioManager _audioManager;
+        private AudioController _audioManager;
 
         public int _countFruit { get; private set; }
 
         [Inject]
-        private void Construct(GridController controller, GameManager gameManager, AudioManager audioManager)
+        private void Construct(GridController controller, GameManager gameManager, AudioController audioManager)
         {
             _gridController = controller;
             _gameManager = gameManager;

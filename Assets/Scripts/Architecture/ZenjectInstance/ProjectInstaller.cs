@@ -5,7 +5,7 @@ namespace Code
 {
     public class ProjectInstaller : MonoInstaller
     {
-        [SerializeField] private AudioManager _audioManage;
+        [SerializeField] private AudioController _audioManage;
 
         public override void InstallBindings()
         {
@@ -25,7 +25,7 @@ namespace Code
         private void BindAudioManage()
         {
             Container
-                .Bind<AudioManager>()
+                .Bind<AudioController>()
                 .FromComponentInNewPrefab(_audioManage)
                 .AsSingle();
         }

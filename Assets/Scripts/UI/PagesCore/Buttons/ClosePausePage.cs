@@ -5,8 +5,6 @@ namespace Code
 {
     public class ClosePausePage : UIButton
     {
-        [SerializeField] private string _pageId = "Pause";
-
         private PagesController _controller;
         private GameManager _gameManager;
 
@@ -22,7 +20,7 @@ namespace Code
             base.OnClick();
 
             _gameManager.PlayGame();
-            _controller.ShowPage(_pageId);
+            _controller.ShowPage(PageType.Game_Pause);
         }
     }
 }

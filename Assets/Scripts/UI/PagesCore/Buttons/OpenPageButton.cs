@@ -1,4 +1,3 @@
-using Code;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -8,7 +7,7 @@ namespace Code
     [RequireComponent(typeof(Button))]
     public class OpenPageButton : UIButton
     {
-        [SerializeField] private string _pageId;
+        [SerializeField] private PageType _openPageType;
 
         private PagesController _controller;
 
@@ -22,7 +21,7 @@ namespace Code
         {
             base.OnClick();
 
-            _controller.ShowPage(_pageId);
+            _controller.ShowPage(_openPageType);
         }
     }
 }

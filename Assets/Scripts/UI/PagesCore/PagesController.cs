@@ -5,33 +5,32 @@ namespace Code
 {
     public class PagesController : MonoBehaviour
     {
+        [SerializeField] private Page _currentPage;
         [SerializeField] private Page[] _pages;
-
-        [field: SerializeField] public Page CurrentPage { set; private get; }
-
-        public void ShowPage(string pageId)
+  
+        public void ShowPage(PageType pageType)
         {
-            CurrentPage?.Hide();
-            CurrentPage = GetPage(pageId);
-            CurrentPage.gameObject.SetActive(true);
-            CurrentPage.Show();
+            _currentPage?.Hide();
+            _currentPage = GetPage(pageType);
+            _currentPage.gameObject.SetActive(true);
+            _currentPage.Show();
         }
 
         public void HidePage()
         {
-            CurrentPage?.Hide();
-            CurrentPage = null;
+            _currentPage?.Hide();
+            _currentPage = null;
         }
 
-        private Page GetPage(string id)
+        private Page GetPage(PageType pageType)
         {
-            Page findPage = _pages.FirstOrDefault(page => page._id == id);
-            if (findPage == null)
+            Page returnPage = _pages.FirstOrDefault(page => page._pageType == pageType);
+            if (returnPage == null)
             {
-                Debug.LogError("Page Id error: " + id);
+                Debug.LogError("Page Error: " + pageType);
             }
 
-            return findPage;
+            return returnPage;
         }
     }
 }

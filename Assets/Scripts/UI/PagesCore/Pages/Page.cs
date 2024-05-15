@@ -4,7 +4,7 @@ namespace Code
 {
     public class Page : MonoBehaviour
     {
-        [field: SerializeField] public string _id { get; private set; }
+        [field: SerializeField] public PageType _pageType { get; private set; }
 
         private AlphaAnimation _alphaAnimator;
 

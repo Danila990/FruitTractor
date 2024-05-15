@@ -12,7 +12,7 @@ namespace Code
         private Sprite _onState;
 
         [Inject]
-        private void Construct(AudioManager audioManager)
+        private void Construct(AudioController audioManager)
         {
             _audioManager = audioManager;
         }
