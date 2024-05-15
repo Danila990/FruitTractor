@@ -1,4 +1,5 @@
-﻿using Zenject;
+﻿using UnityEngine;
+using Zenject;
 
 namespace Code
 {
@@ -18,6 +19,7 @@ namespace Code
         {
             base.OnClick();
 
+            Time.timeScale = 1.0f;
             _sceneLoader.LoadGame(LoadSceneIndex);
         }
     }

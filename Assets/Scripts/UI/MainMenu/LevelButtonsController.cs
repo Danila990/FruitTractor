@@ -4,7 +4,7 @@ using YG;
 
 namespace Code
 {
-    public class LevelButtonController : MonoBehaviour
+    public class LevelButtonsController : MonoBehaviour
     {
         [SerializeField] private LoadSceneButton[] _buttons;
         

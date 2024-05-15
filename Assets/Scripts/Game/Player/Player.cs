@@ -16,6 +16,7 @@ namespace Code
         private GridController _gridController;
         private IInputService _inputService;
         private Cell _currentCell;
+        private bool _isReadyMove = false;
 
         [Inject]
         private void Construct(GridController controller, IInputService inputService)
@@ -35,9 +36,14 @@ namespace Code
             _currentCell = _gridController._playerCell;
         }
 
+        public void StartMove()
+        {
+            _isReadyMove = true;
+        }
+
         private void MoveComplete(Cell currentCell)
         {
-            if (_movement.IsMove)
+            if (_movement.IsMove || _isReadyMove == false)
             {
                 return;
             }

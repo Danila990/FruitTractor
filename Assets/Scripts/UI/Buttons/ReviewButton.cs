@@ -10,18 +10,20 @@ namespace Code
     public class ReviewButton :UIButton
     {
         private GameManager _gameManager;
+        private FruitController _fruitController;
 
         private bool _isFirstReview = true;
 
         [Inject]
-        private void Construct(GameManager gameManager)
+        private void Construct(GameManager gameManager, FruitController fruitController)
         {
             _gameManager = gameManager;
+            _fruitController = fruitController;
         }
 
         private void OnEnable()
         {
-            if (!_isFirstReview)
+            if (!_isFirstReview || _fruitController._countFruit == 0)
             {
                 GetComponent<Button>().interactable = false;
             }

@@ -10,26 +10,21 @@ namespace Code
 
         private LevelTimer _levelTimer;
         private PagesController _pagesController;
-        private GameManager _gameManager;
+        private Player _player;
 
         [Inject]
-        private void Construct(LevelTimer levelTimer, PagesController pagesController, GameManager gameManager)
+        private void Construct(LevelTimer levelTimer, PagesController pagesController, Player player)
         {
-            _gameManager = gameManager;
             _levelTimer = levelTimer;
             _pagesController = pagesController;
-        }
-
-        private void OnEnable()
-        {
-            _gameManager.PauseGame();
+            _player = player;
         }
 
         protected override void OnClick()
         {
             base.OnClick();
 
-            _gameManager.PlayGame();
+            _player.StartMove();
             _levelTimer.StartTimer();
             _pagesController.ShowPage(_pageId);
         }

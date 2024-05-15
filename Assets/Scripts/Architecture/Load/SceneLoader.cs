@@ -1,4 +1,5 @@
-﻿using UnityEngine.SceneManagement;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using YG;
 
 namespace Code
@@ -17,11 +18,13 @@ namespace Code
 
         public void RestartScene()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Time.timeScale = 1.0f;
+            LoadGame(SceneManager.GetActiveScene().buildIndex);
         }
 
         public void LoadNextLevel()
         {
+            Time.timeScale = 1.0f;
             LoadGame(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }

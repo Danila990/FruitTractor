@@ -16,6 +16,14 @@ namespace Code
 
         public Cell _playerCell { get; private set; }
         public Dictionary<Vector2Int, Fruit> _fruits { get; private set; } = new Dictionary<Vector2Int, Fruit>();
+        
+        private GameManager _gameManager;
+
+        [Inject]
+        private void Construct(GameManager gameManager)
+        {
+            _gameManager = gameManager;
+        }
 
         public void Initialize()
         {
@@ -25,6 +33,11 @@ namespace Code
 
         public void CellEventInvoke(Cell cell)
         {
+            if(cell._cellType == CellType.Rock)
+            {
+                _gameManager.LossGame();
+            }
+
             OnCellEvent?.Invoke(cell);
         }
 

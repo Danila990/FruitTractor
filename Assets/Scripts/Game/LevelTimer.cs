@@ -31,6 +31,7 @@ namespace Code
 
         public void StartTimer()
         {
+            StopAllCoroutines();
             StartCoroutine(TimerCoroutine());
         }
 

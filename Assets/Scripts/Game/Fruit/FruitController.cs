@@ -9,7 +9,8 @@ namespace Code
         private Dictionary<Vector2Int, Fruit> _fruits = new Dictionary<Vector2Int, Fruit>();
         private GridController _gridController;
         private GameManager _gameManager;
-        private int _countFruit;
+
+        public int _countFruit { get; private set; }
 
         [Inject]
         private void Construct(GridController controller, GameManager gameManager)
@@ -34,9 +35,9 @@ namespace Code
         {
             if(_fruits.TryGetValue(cell._gridIndex, out Fruit findFruit))
             {
-                findFruit.DeactivateFruit();
                 _countFruit -= 1;
-                if (_countFruit == 0)
+                findFruit.DeactivateFruit();
+                if (_countFruit  == 0)
                 {
                     _gameManager.WinGame();
                 }
