@@ -58,7 +58,7 @@ MonoBehaviour:
   - <_id>k__BackingField: 2
     <_audioClip>k__BackingField: {fileID: 8300000, guid: 5b2d9b87f4ae3e949bd1cd610d01411a,
       type: 3}
-    <_volume>k__BackingField: 1
+    <_volume>k__BackingField: 0.1
   - <_id>k__BackingField: 3
     <_audioClip>k__BackingField: {fileID: 8300000, guid: 3582b2b2287a6c646b2d3d509d8376a6,
       type: 3}
@@ -173,7 +173,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c94e0ab347f61854cb95502275dfed37, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.01
   m_Pitch: 1
   Loop: 1
   Mute: 0

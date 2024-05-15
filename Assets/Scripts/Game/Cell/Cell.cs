@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
-using Zenject;
+﻿using UnityEngine;
 
 namespace Code
 {
@@ -9,22 +7,14 @@ namespace Code
         [field: SerializeField] public CellType _cellType { get; private set; } = CellType.Empty;
         [field: SerializeField] public Vector2Int _gridIndex { get; private set; }
 
-        private GridController _controller;
-
-        [Inject]
-        private void Construct(GridController controller)
-        {
-            _controller = controller;
-        }
-
         public void SetupIndex(Vector2Int gridIndex)
         {
             _gridIndex = gridIndex;
         }
 
-        public void CellEvent()
+        public virtual void CellEvent()
         {
-            _controller.CellEventInvoke(this);
+            
         }
     }
 }

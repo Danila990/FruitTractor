@@ -1,8 +1,4 @@
-﻿using Manager;
-using System.Collections;
-using UnityEngine;
-using UnityEngine.UI;
-using YG;
+﻿using UnityEngine.UI;
 using Zenject;
 
 namespace Code

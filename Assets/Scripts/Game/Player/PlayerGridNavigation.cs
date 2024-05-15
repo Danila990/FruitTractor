@@ -3,7 +3,7 @@ using Zenject;
 
 namespace Code
 {
-    public class PlayerGridNavigator : MonoBehaviour
+    public class PlayerGridNavigation : MonoBehaviour
     {
         private GridController _gridController;
         private Vector2Int _sizeGrid;
@@ -12,7 +12,7 @@ namespace Code
         private void Construct(GridController controller)
         {
             _gridController = controller;
-            _sizeGrid = _gridController.SizeGrid - Vector2Int.one;
+            _sizeGrid = _gridController.GetSizeGrid() - Vector2Int.one;
         }
 
         public bool TryGetNextCell(DirectionType currentDirection, Cell currentCell, out Cell returnCell)

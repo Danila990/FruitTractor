@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace Code
 {
-    public class BasketFruitButton : UIButton
+    public class BasketButton : UIButton
     {
         [SerializeField] private Image _icon;
 
@@ -11,7 +11,7 @@ namespace Code
         private Button _button;
         private BasketFruitController _basketFruit;
         
-        public void SetupButton(FruitType fruitType, Sprite icon, BasketFruitController basketFruit)
+        public void SetupData(FruitType fruitType, Sprite icon, BasketFruitController basketFruit)
         {
             _button = GetComponent<Button>();
             _basketFruit = basketFruit;
@@ -25,7 +25,7 @@ namespace Code
         {
             base.OnClick();
 
-            _basketFruit.SetCurrentFruitType(_fruitType, this);
+            _basketFruit.SetFruitType(_fruitType, this);
         }
     }
 }

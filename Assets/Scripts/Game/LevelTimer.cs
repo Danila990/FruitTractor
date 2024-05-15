@@ -12,14 +12,19 @@ namespace Code
         [SerializeField] private int _levelTime;
 
         private GameManager _gameManager;
-
-        public int _currentTime { get; private set; }
+        private int _currentTime;
 
         [Inject]
         private void Construct(GameManager gameManager)
         {
             _gameManager = gameManager;
+            _gameManager.OnStartGame += StartTimer;
             _currentTime = _levelTime;
+        }
+
+        private void Awake()
+        {
+            OnLevelTime?.Invoke(_currentTime);
         }
 
         public void ReviewTimer(int addTime)
@@ -29,8 +34,9 @@ namespace Code
             StartTimer();
         }
 
-        public void StartTimer()
+        private void StartTimer()
         {
+            _gameManager.OnStartGame -= StartTimer;
             StopAllCoroutines();
             StartCoroutine(TimerCoroutine());
         }

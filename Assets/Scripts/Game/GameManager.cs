@@ -1,21 +1,18 @@
 ﻿using System;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using YG;
 using Zenject;
-using Random = UnityEngine.Random;
 
 namespace Code
 {
     public class GameManager
     {
-        public bool _isPlayGame => Time.timeScale != 0;
+        public event Action OnStartGame;
 
         private SceneLoader _sceneLoader;
         private PagesController _pagesController;
         private LevelTimer _levelTimer;
-        private Player _player;
 
         [Inject]
         private void Construct(SceneLoader sceneLoader, PagesController pagesController, LevelTimer levelTimer)
@@ -23,6 +20,12 @@ namespace Code
             _levelTimer = levelTimer;
             _sceneLoader = sceneLoader;
             _pagesController = pagesController;
+        }
+
+        public void StartGame()
+        {
+            PlayGame();
+            OnStartGame?.Invoke();
         }
 
         public void RestartGame()

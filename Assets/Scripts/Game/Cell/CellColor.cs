@@ -7,7 +7,7 @@ namespace Code
         [SerializeField] private Color _color = Color.black;
         [SerializeField] private bool _changeColor = true;
 
-        private void Start()
+        private void Awake()
         {
             if(_changeColor)
             {

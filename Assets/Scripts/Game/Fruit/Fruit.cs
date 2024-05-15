@@ -13,7 +13,7 @@ namespace Code
 
         private Tween _animTween;
 
-        private void Start()
+        private void Awake()
         {
             _animTween = transform.DOMoveY(_targety, _duraction)
                 .SetLoops(-1, LoopType.Yoyo);

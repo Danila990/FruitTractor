@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Code;
 using UnityEngine;
 using Zenject;
 
@@ -9,72 +7,66 @@ namespace Code
 {
     public class BasketFruitController : MonoBehaviour, IInitializable
     {
-        [Serializable]
-        private class BasketData
-        {
-            [field: SerializeField] public FruitType _fruitType { get; private set; }
-            [field: SerializeField] public Sprite _fruitIcon { get; private set; }
-        }
-        
-        [SerializeField] private BasketFruitButton _fruitButtonPrefab;
         [SerializeField] private Transform _parentButton;
-        [SerializeField] private BasketData[] _basketDatas;
-        
-        private List<BasketFruitButton> _basketFruitsButton = new List<BasketFruitButton>();
+        [SerializeField] private BasketContainer _basketContainer;
+
+        private List<BasketButton> _basketButton = new List<BasketButton>();
         private FruitType _currentFruitType;
         private GridController _gridController;
         private GameManager _gameManager;
-        private Dictionary<Vector2Int, Fruit> _fruits = new Dictionary<Vector2Int, Fruit>();
+        private FruitController _fruitController;
 
         [Inject]
-        private void Construct(GridController gridController, GameManager gameManager)
+        private void Construct(GridController gridController, GameManager gameManager, FruitController fruitController)
         {
+            _fruitController = fruitController;
             _gameManager = gameManager;
             _gridController = gridController;
-            _gridController.OnCellEvent += CurrentCell;
+            _fruitController.OnUpFruit += OnUpFruit;
+        }
+
+        private void OnDestroy()
+        {
+            _fruitController.OnUpFruit -= OnUpFruit;
         }
 
         public void Initialize()
         {
-            _fruits = _gridController._fruits;
-            CreateButtons();
+            CreateButtons(_gridController._fruits);
         }
 
-        private void CurrentCell(Cell currentCell)
+        public void SetFruitType(FruitType typeFruit, BasketButton button)
         {
-            if (_fruits.TryGetValue(currentCell._gridIndex, out Fruit findFruit))
+            foreach (BasketButton fruitButton in _basketButton)
             {
-                if (findFruit._fruitType != _currentFruitType)
-                {
-                    _gameManager.LossGame();
-                }
-            }
-        }
-
-        public void SetCurrentFruitType(FruitType typeFruit, BasketFruitButton button)
-        {
-            foreach (BasketFruitButton fruitButton in _basketFruitsButton)
                 fruitButton.ChangeInteractable(true);
+            }
             
             button.ChangeInteractable(false);
             _currentFruitType = typeFruit;
         }
 
-        private void CreateButtons()
+        private void OnUpFruit(FruitType upFruitType)
         {
-            List<FruitType> uniqueFruitTypes = _fruits.Values
-            .Select(fruit => fruit._fruitType)
-            .Distinct()
-            .ToList();
-            foreach (FruitType type in uniqueFruitTypes)
+            if (upFruitType != _currentFruitType)
             {
-                BasketData data = _basketDatas.FirstOrDefault(data => data._fruitType == type);
-                BasketFruitButton basketFruitButton = Instantiate(_fruitButtonPrefab, _parentButton);
-                basketFruitButton.SetupButton(data._fruitType, data._fruitIcon, this);
-                _basketFruitsButton.Add(basketFruitButton);
+                _gameManager.LossGame();
+            }
+        }
+
+        private void CreateButtons(List<FruitCell> fruits)
+        {
+            List<FruitType> allFruitTypes = fruits.Select(fruitCell => fruitCell._fruit._fruitType)
+                .Distinct().ToList();
+            foreach (FruitType fruitType in allFruitTypes)
+            {
+                BasketButton newButton = Instantiate(_basketContainer._basketButtonPrefab, _parentButton);
+                BasketButtonData basketData = _basketContainer.GetBasketData(fruitType);
+                newButton.SetupData(basketData._fruitType, basketData._fruitIcon, this);
+                _basketButton.Add(newButton);
             }
 
-            SetCurrentFruitType(uniqueFruitTypes[0], _basketFruitsButton[0]);
+            SetFruitType(allFruitTypes[0], _basketButton[0]);
         }
     }
 }

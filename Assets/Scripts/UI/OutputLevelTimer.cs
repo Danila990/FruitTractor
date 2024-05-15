@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using Zenject;
 
@@ -15,7 +14,6 @@ namespace Code
         private void Construct(LevelTimer levelTimer)
         {
             _levelTimer = levelTimer;
-            Output(_levelTimer._currentTime);
             _levelTimer.OnLevelTime += Output;
         }
 

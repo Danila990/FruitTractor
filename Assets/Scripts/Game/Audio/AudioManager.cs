@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Linq;
 using UnityEngine;
-using YG;
 
-namespace Manager
+namespace Code
 {
     public class AudioManager : MonoBehaviour
     {

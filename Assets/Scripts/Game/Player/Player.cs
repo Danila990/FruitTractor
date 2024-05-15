@@ -4,51 +4,58 @@ using Zenject;
 
 namespace Code
 {
-    [RequireComponent(typeof(PlayerMovement), typeof(PlayerRotation), typeof(PlayerGridNavigator))]
+    [RequireComponent(typeof(PlayerMovement), typeof(PlayerRotation), typeof(PlayerGridNavigation))]
     public class Player : MonoBehaviour
     {
         [SerializeField] private DirectionType _startDirection;
 
         private PlayerMovement _movement;
         private PlayerRotation _rotation;
-        private PlayerGridNavigator _gridNavigator;
-        private DirectionType _currentDirection;
+        private PlayerGridNavigation _gridNavigation;
         private GridController _gridController;
+        private GameManager _gameManager;
+        private DirectionType _currentDirection;
         private IInputService _inputService;
         private Cell _currentCell;
-        private bool _isReadyMove = false;
+        private bool _isStartGame = false;
 
         [Inject]
-        private void Construct(GridController controller, IInputService inputService)
+        private void Construct(GridController controller, IInputService inputService, GameManager gameManager)
         {
+            _gameManager = gameManager;
             _gridController = controller;
             _inputService = inputService;
             _inputService.OnInputDirection += InputDirection;
-            _gridController.OnCellEvent += MoveComplete;
+            _gameManager.OnStartGame += OnStartGame;
+        }
+
+        private void Awake()
+        {
+            _movement = GetComponent<PlayerMovement>();
+            _rotation = GetComponent<PlayerRotation>();
+            _gridNavigation = GetComponent<PlayerGridNavigation>();
         }
 
         private void Start()
         {
-            _movement = GetComponent<PlayerMovement>();
-            _rotation = GetComponent<PlayerRotation>();
-            _gridNavigator = GetComponent<PlayerGridNavigator>();
             _rotation.RotateToDirection(_currentDirection, true);
             _currentCell = _gridController._playerCell;
+            _movement.OnMoveComplete += MoveComplete;
         }
 
-        public void StartMove()
+        private void OnStartGame()
         {
-            _isReadyMove = true;
+            _isStartGame = true;
         }
 
-        private void MoveComplete(Cell currentCell)
+        private void MoveComplete()
         {
-            if (_movement.IsMove || _isReadyMove == false)
+            if (_movement.IsMove || _isStartGame == false)
             {
                 return;
             }
 
-            if(_gridNavigator.TryGetNextCell(_currentDirection, currentCell, out Cell returnCell))
+            if(_gridNavigation.TryGetNextCell(_currentDirection, _currentCell, out Cell returnCell))
             {
                 _currentCell = returnCell;
                 _movement.Move(returnCell);
@@ -59,13 +66,13 @@ namespace Code
         private void InputDirection(DirectionType typeDirection)
         {
             _currentDirection = typeDirection;
-            MoveComplete(_currentCell);
+            MoveComplete();
         }
 
         private void OnDestroy()
         {
-            _gridController.OnCellEvent -= MoveComplete;
             _inputService.OnInputDirection -= InputDirection;
+            _movement.OnMoveComplete -= MoveComplete;
         }
     }
 }

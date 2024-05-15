@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6619504ad93eeda4db3fd2d4a5810f38, type: 3}
+  m_Name: BasketContainer
+  m_EditorClassIdentifier: 
+  _basketDatas:
+  - <_fruitType>k__BackingField: 2
+    <_fruitIcon>k__BackingField: {fileID: 62513078, guid: d8783b1ad309f134cb9c885cea9e376f,
+      type: 3}
+  - <_fruitType>k__BackingField: 0
+    <_fruitIcon>k__BackingField: {fileID: 929796827, guid: d8783b1ad309f134cb9c885cea9e376f,
+      type: 3}
+  - <_fruitType>k__BackingField: 4
+    <_fruitIcon>k__BackingField: {fileID: 780217400, guid: d8783b1ad309f134cb9c885cea9e376f,
+      type: 3}
+  - <_fruitType>k__BackingField: 3
+    <_fruitIcon>k__BackingField: {fileID: -563815699, guid: d8783b1ad309f134cb9c885cea9e376f,
+      type: 3}
+  - <_fruitType>k__BackingField: 1
+    <_fruitIcon>k__BackingField: {fileID: 1476467757, guid: d8783b1ad309f134cb9c885cea9e376f,
+      type: 3}
+  <_basketButtonPrefab>k__BackingField: {fileID: 38985506390319583, guid: cba85a0457558f448a0de43d91f879b5,
+    type: 3}

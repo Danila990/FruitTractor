@@ -9,10 +9,12 @@ namespace Code
         [SerializeField] private string _pageId = "Pause";
 
         private PagesController _controller;
+        private GameManager _gameManager;
 
         [Inject]
-        private void Construct(PagesController pagesController)
+        private void Construct(PagesController pagesController, GameManager gameManager)
         {
+            _gameManager = gameManager;
             _controller = pagesController;
         }
 
@@ -20,7 +22,7 @@ namespace Code
         {
             base.OnClick();
 
-            Time.timeScale = 0;
+            _gameManager.PauseGame();
             _controller.ShowPage(_pageId);
         }
     }

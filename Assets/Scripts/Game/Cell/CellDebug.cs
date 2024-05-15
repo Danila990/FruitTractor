@@ -1,5 +1,6 @@
 ﻿#if UNITY_EDITOR
 using System.Collections;
+using UnityEditor;
 using UnityEngine;
 
 namespace Code
@@ -24,14 +25,38 @@ namespace Code
             {
                 _needType = _cell._cellType;
             }
-
             if (_cell._cellType != _needType && gameObject.activeInHierarchy)
             {
-                _gridCreator.ChangeCell(_cell, _needType);
-                UnityEditor.EditorApplication.delayCall += () =>
-                {
-                    DestroyImmediate(gameObject);
-                };
+                ChangeCell();
+            }
+        }
+
+        public void ChangeCell()
+        {
+            _gridCreator.ChangeCell(_cell, _needType);
+            UnityEditor.EditorApplication.delayCall += () =>
+            {
+                DestroyImmediate(gameObject);
+            };
+        }
+    }
+
+    [CustomEditor(typeof(CellDebug))]
+    public class CellDebugCustomEditor : Editor
+    {
+        private CellDebug _cellDebug;
+
+        private void OnEnable()
+        {
+            _cellDebug = (CellDebug)target;
+        }
+
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
+            if (GUILayout.Button("Update cell"))
+            {
+                _cellDebug.ChangeCell();
             }
         }
     }

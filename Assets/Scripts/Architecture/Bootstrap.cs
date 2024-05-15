@@ -2,7 +2,7 @@
 
 namespace Code
 {
-    public class Bootstrap : IInitializable, ILateDisposable
+    public class Bootstrap : IInitializable
     {
         private FruitController _fruitController;
         private GridController _gridController;
@@ -21,11 +21,6 @@ namespace Code
             _gridController.Initialize();
             _fruitController.Initialize();
             _basketFruit.Initialize();
-        }
-
-        public void LateDispose()
-        {
-            _fruitController.LateDispose();
         }
     }
 }
