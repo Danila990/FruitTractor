@@ -93,8 +93,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5201121901781062933}
   - component: {fileID: 221838589360606602}
-  - component: {fileID: -8034131685882588369}
   - component: {fileID: -3795454418049439866}
+  - component: {fileID: -8034131685882588369}
   m_Layer: 0
   m_Name: RockCell
   m_TagString: Untagged
@@ -134,20 +134,6 @@ MonoBehaviour:
   _changeColor: 1
   _size: {x: 2.5, y: 0.1, z: 2.5}
   _offsetY: 0.3
---- !u!114 &-8034131685882588369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8510967263475775242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b90e22deb2b06a445a18d1259911b823, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gridCreator: {fileID: 0}
-  _needType: 3
 --- !u!114 &-3795454418049439866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,3 +148,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <_cellType>k__BackingField: 3
   <_gridIndex>k__BackingField: {x: 0, y: 0}
+--- !u!114 &-8034131685882588369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8510967263475775242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b90e22deb2b06a445a18d1259911b823, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gridCreator: {fileID: 0}
+  _needType: 3

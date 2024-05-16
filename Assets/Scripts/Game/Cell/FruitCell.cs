@@ -23,7 +23,10 @@ namespace Code
         {
             base.CellEvent();
 
-            _fruitController.UpFruit(this);
+            if(_fruit.gameObject.activeInHierarchy)
+            {
+                _fruitController.UpFruit(this);
+            }
         }
     }
 }

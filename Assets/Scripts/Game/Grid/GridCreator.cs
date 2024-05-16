@@ -55,7 +55,7 @@ namespace Code
                     break;
             }
 
-            newCell.GetComponent<CellDebug>().SetupGridCreator(this, cellType);
+            newCell.GetComponent<CellDebug>().SetupGridCreator(cellType);
             _gridController.Setup(_lineCell);
         }
 
@@ -71,8 +71,7 @@ namespace Code
                 for (int y = 0; y < _gridSize.y; y++)
                 {
                     Cell cell = Instantiate(emptyCell, _parrent.transform);
-                    lineCells.Cells.Add(cell);    
-                    cell.GetComponent<CellDebug>().SetupGridCreator(this);
+                    lineCells.Cells.Add(cell);
                     cell.transform.position = new Vector3(x * _cellsOffset, 0, y * _cellsOffset) - middleOffset + _parrent.transform.position;
                     cell.SetupIndex(new Vector2Int(x, y));
                 }
