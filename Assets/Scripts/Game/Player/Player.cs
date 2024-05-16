@@ -7,7 +7,7 @@ namespace Code
     [RequireComponent(typeof(PlayerMovement), typeof(PlayerRotation), typeof(PlayerGridNavigation))]
     public class Player : MonoBehaviour
     {
-        [SerializeField] private DirectionType _startDirection;
+        [SerializeField] private GameObject _virtualCamera;
 
         private PlayerMovement _movement;
         private PlayerRotation _rotation;
@@ -45,6 +45,7 @@ namespace Code
 
         private void OnStartGame()
         {
+            _virtualCamera.gameObject.SetActive(true);
             _isStartGame = true;
         }
 
