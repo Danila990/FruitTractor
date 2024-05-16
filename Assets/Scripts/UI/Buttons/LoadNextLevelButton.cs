@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using YG;
 using Zenject;
 
 namespace Code
@@ -21,8 +18,7 @@ namespace Code
         {
             base.Start();
 
-            SavesYG savesYG = YandexGame.savesData;
-            if (savesYG.CurrentLevel == savesYG._maxLevel || SceneManager.sceneCountInBuildSettings == savesYG.CurrentLevel)
+            if (SceneManager.sceneCountInBuildSettings - 1 == SceneManager.GetActiveScene().buildIndex)
             {
                 GetComponent<Button>().interactable = false;
             }
