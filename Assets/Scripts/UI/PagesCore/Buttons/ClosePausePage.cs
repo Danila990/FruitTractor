@@ -20,7 +20,7 @@ namespace Code
             base.OnClick();
 
             _gameManager.PlayGame();
-            _controller.ShowPage(PageType.Game_Pause);
+            _controller.ShowPage(PageType.Game_GUI);
         }
     }
 }

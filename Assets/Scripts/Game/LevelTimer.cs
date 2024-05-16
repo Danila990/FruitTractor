@@ -37,7 +37,7 @@ namespace Code
 
         private void OnRewGame()
         {
-            _currentTime += _rewTime;
+            _currentTime = _rewTime;
             OnLevelTime?.Invoke(_currentTime);
             StartTimer();
         }

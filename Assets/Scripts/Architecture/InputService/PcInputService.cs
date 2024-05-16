@@ -6,8 +6,16 @@ namespace Code
     public class PcInputService : MonoBehaviour, IInputService
     {
         public event Action<DirectionType> OnInputDirection;
-        
-        private void Update() => Inputs();
+
+        private void Update()
+        {
+            Inputs();
+        }
+
+        public void InvokeInputEvent(DirectionType direction)
+        {
+            OnInputDirection?.Invoke(direction);
+        }
 
         private void Inputs()
         {
@@ -17,9 +25,9 @@ namespace Code
             if (x != 0)
             {
                 if (x > 0)
-                    DirectionEvent(DirectionType.Right);
+                    InvokeInputEvent(DirectionType.Right);
                 else
-                    DirectionEvent(DirectionType.Left);
+                    InvokeInputEvent(DirectionType.Left);
                 
                 return;
             }
@@ -27,16 +35,11 @@ namespace Code
             if (y != 0)
             {
                 if (y > 0)
-                    DirectionEvent(DirectionType.Up);
+                    InvokeInputEvent(DirectionType.Up);
                 else
-                    DirectionEvent(DirectionType.Down);
+                    InvokeInputEvent(DirectionType.Down);
 
             }
-        }
-
-        private void DirectionEvent(DirectionType typeDirection)
-        {
-            OnInputDirection?.Invoke(typeDirection);
         }
     }
 }

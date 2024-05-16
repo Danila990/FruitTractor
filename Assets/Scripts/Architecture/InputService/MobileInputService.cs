@@ -7,11 +7,20 @@ namespace Code
     {
         public event Action<DirectionType> OnInputDirection;
         
-        private int _minDragingRange = 125;
-        private int _maxDragingRange = 1000;
+        private readonly int _minDragingRange = 125;
+        private readonly int _maxDragingRange = 1000;
+
         private Vector2 _startTouch;
 
-        private void Update() => Inputs();
+        private void Update() 
+        {
+            Inputs();
+        }
+
+        public void InvokeInputEvent(DirectionType direction)
+        {
+            OnInputDirection?.Invoke(direction);
+        }
 
         private void Inputs()
         {
@@ -36,23 +45,18 @@ namespace Code
                 if (Mathf.Abs(swipeDelta.x) > Mathf.Abs(swipeDelta.y))
                 {
                     if (swipeDelta.x < 0)
-                        DirectionEvent(DirectionType.Left);
+                        InvokeInputEvent(DirectionType.Left);
                     else
-                        DirectionEvent(DirectionType.Right);
+                        InvokeInputEvent(DirectionType.Right);
                 }
                 else
                 {
                     if (swipeDelta.y < 0)
-                        DirectionEvent(DirectionType.Down);
+                        InvokeInputEvent(DirectionType.Down);
                     else
-                        DirectionEvent(DirectionType.Up);
+                        InvokeInputEvent(DirectionType.Up);
                 }
             }
-        }
-        
-        private void DirectionEvent(DirectionType typeDirection)
-        {
-            OnInputDirection?.Invoke(typeDirection);
         }
     }
 }
