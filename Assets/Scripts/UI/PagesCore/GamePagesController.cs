@@ -12,14 +12,12 @@ namespace Code
             _gameManager = gameManager;
             _gameManager.OnLossGame += OnLossGame;
             _gameManager.OnWinGame += OnWinGame;
-            _gameManager.OnRewGame += OnRewGame;
         }
 
         private void OnDestroy()
         {
             _gameManager.OnLossGame -= OnLossGame;
             _gameManager.OnWinGame -= OnWinGame;
-            _gameManager.OnRewGame -= OnRewGame;
         }
 
         private void OnLossGame()
@@ -30,11 +28,6 @@ namespace Code
         private void OnWinGame()
         {
             ShowPage(PageType.Game_Win);
-        }
-
-        private void OnRewGame()
-        {
-            ShowPage(PageType.Game_GUI);
         }
     }
 }

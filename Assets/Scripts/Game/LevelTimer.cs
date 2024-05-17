@@ -20,7 +20,6 @@ namespace Code
         {
             _gameManager = gameManager;
             _gameManager.OnStartGame += StartTimer;
-            _gameManager.OnRewGame += OnRewGame;
             _currentTime = _levelTime;
         }
 
@@ -32,14 +31,6 @@ namespace Code
         private void OnDestroy()
         {
             _gameManager.OnStartGame -= StartTimer;
-            _gameManager.OnRewGame -= OnRewGame;
-        }
-
-        private void OnRewGame()
-        {
-            _currentTime = _rewTime;
-            OnLevelTime?.Invoke(_currentTime);
-            StartTimer();
         }
 
         private void StartTimer()

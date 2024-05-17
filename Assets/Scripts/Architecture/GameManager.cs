@@ -11,7 +11,6 @@ namespace Code
         public event Action OnStartGame;
         public event Action OnLossGame;
         public event Action OnWinGame;
-        public event Action OnRewGame;
 
         private SceneLoader _sceneLoader;
 
@@ -42,12 +41,6 @@ namespace Code
         {
             Time.timeScale = 0;
         }
-        
-        public void ReviewGame()
-        {
-            YandexGame.RewardVideoEvent += OnShowAd;
-            YandexGame.RewVideoShow(0);
-        }
 
         public void LossGame()
         {
@@ -61,16 +54,6 @@ namespace Code
             PauseGame();
             OnWinGame?.Invoke();
             
-        }
-
-        private void OnShowAd(int index)
-        {
-            if(index == 0)
-            {
-                YandexGame.RewardVideoEvent -= OnShowAd;
-                PlayGame();
-                OnRewGame?.Invoke();
-            }
         }
 
         private void SaveProgress()

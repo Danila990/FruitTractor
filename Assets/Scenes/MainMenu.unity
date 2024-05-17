@@ -52053,7 +52053,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 312.9796, y: -236.56604}
+  m_AnchoredPosition: {x: 312.68237, y: -236.56604}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &950703044319277941
@@ -52462,7 +52462,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 312.9796, y: -86.56604}
+  m_AnchoredPosition: {x: 312.68237, y: -86.56604}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &1673750129101591760
@@ -53137,6 +53137,7 @@ GameObject:
   - component: {fileID: 7938790064563479451}
   - component: {fileID: 6770842761420396230}
   - component: {fileID: 2019168492503264910}
+  - component: {fileID: 7938790064563479452}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -55996,6 +55997,7 @@ GameObject:
   - component: {fileID: 6767053590313760559}
   - component: {fileID: 3881687888413398127}
   - component: {fileID: 4085627653158790823}
+  - component: {fileID: 6767053590313760560}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -56301,6 +56303,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6767053590313760560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6438634568899033859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29fc893fb07540aeac3b9fadf5bb620b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ru: "\u0417\u0432\u0443\u043A"
+  _en: Sound
 --- !u!222 &6770842761420396230
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -57196,6 +57212,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7938790064563479452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2916607947292608356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29fc893fb07540aeac3b9fadf5bb620b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ru: "\u043C\u0443\u0437\u044B\u043A\u0430"
+  _en: music
 --- !u!1 &7966670878030629814
 GameObject:
   m_ObjectHideFlags: 0
