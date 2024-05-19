@@ -19,27 +19,22 @@ namespace Code
 
         private void Inputs()
         {
-            float x = Input.GetAxis("Horizontal");
-            float y = Input.GetAxis("Vertical");
-
-            if (x != 0)
+            if (Input.GetKeyDown(KeyCode.D))
             {
-                if (x > 0)
-                    InvokeInputEvent(DirectionType.Right);
-                else
-                    InvokeInputEvent(DirectionType.Left);
-                
-                return;
+                InvokeInputEvent(DirectionType.Right);
             }
-            
-            if (y != 0)
+            else if (Input.GetKeyDown(KeyCode.A))
             {
-                if (y > 0)
-                    InvokeInputEvent(DirectionType.Up);
-                else
-                    InvokeInputEvent(DirectionType.Down);
-
+                InvokeInputEvent(DirectionType.Left);
             }
+            else if (Input.GetKeyDown(KeyCode.W))
+            {
+                InvokeInputEvent(DirectionType.Up);
+            }
+            else if (Input.GetKeyDown(KeyCode.S))
+            {
+                InvokeInputEvent(DirectionType.Down);
+            }  
         }
     }
 }

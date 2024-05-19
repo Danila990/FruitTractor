@@ -1,13 +1,12 @@
-﻿#if UNITY_EDITOR
-using System.Collections;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 
 namespace Code
 {
     public class CellDebug : MonoBehaviour
     {
-        [SerializeField] CellType _needType;
+#if UNITY_EDITOR
+        [SerializeField] private CellType _needType;
 
         public void SetupGridCreator(CellType type = CellType.Empty)
         {
@@ -38,8 +37,10 @@ namespace Code
             GetComponentInParent<GridCreator>().ChangeCell(GetComponent<Cell>(), _needType);
             DestroyImmediate(gameObject);
         }
+#endif
     }
 
+#if UNITY_EDITOR
     [CustomEditor(typeof(CellDebug))]
     public class CellDebugCustomEditor : Editor
     {
@@ -59,5 +60,5 @@ namespace Code
             }
         }
     }
-}
 #endif
+}

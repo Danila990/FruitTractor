@@ -44,7 +44,7 @@ namespace Code
                 }
             }
         }
-#if UNITY_EDITOR
+
         public void Setup(List<LineCell> lineCell)
         {
             _lineCell = lineCell;
@@ -54,12 +54,6 @@ namespace Code
         {
             _lineCell.Clear();
         }
-
-        public List<LineCell> GetGridLine()
-        {
-            return _lineCell;
-        }
-#endif
     }
 
     [Serializable]

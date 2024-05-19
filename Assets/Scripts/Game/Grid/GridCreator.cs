@@ -1,4 +1,3 @@
-#if UNITY_EDITOR
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
@@ -8,6 +7,7 @@ namespace Code
 {
     public class GridCreator : MonoBehaviour
     {
+#if UNITY_EDITOR
         [SerializeField] private Vector2Int _gridSize;
         [SerializeField] private GridController _gridController;
         [SerializeField] private List<LineCell> _lineCell = new List<LineCell>();
@@ -113,8 +113,9 @@ namespace Code
             _gridController.RemoveGrid();
             _lineCell.Clear();
         }
+#endif
     }
-
+#if UNITY_EDITOR
     [CustomEditor(typeof(GridCreator))]
     public class GridCreatorCustomEditor : Editor
     {
@@ -134,7 +135,5 @@ namespace Code
             }
         }
     }
-}
 #endif
-
-
+}
