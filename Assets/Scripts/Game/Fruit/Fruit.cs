@@ -28,7 +28,7 @@ namespace Code
 
         private void OnDestroy()
         {
-            _animTween.Kill();
+            _animTween?.Kill();
         }
     }
 }

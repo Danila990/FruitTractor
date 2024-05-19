@@ -40,5 +40,10 @@ namespace Code
             _targetCell.CellEvent();
             OnMoveComplete?.Invoke();
         }
+
+        private void OnDestroy()
+        {
+            _moveTween?.Kill();
+        }
     }
 }

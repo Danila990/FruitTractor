@@ -11,23 +11,14 @@ namespace Code
         [SerializeField] private BasketContainer _basketContainer;
 
         private List<BasketButton> _basketButton = new List<BasketButton>();
-        private FruitType _currentFruitType;
         private GridController _gridController;
-        private GameManager _gameManager;
-        private FruitController _fruitController;
+
+        public FruitType _currentFruitType { get; private set; }
 
         [Inject]
-        private void Construct(GridController gridController, GameManager gameManager, FruitController fruitController)
+        private void Construct(GridController gridController)
         {
-            _fruitController = fruitController;
-            _gameManager = gameManager;
             _gridController = gridController;
-            _fruitController.OnUpFruit += OnUpFruit;
-        }
-
-        private void OnDestroy()
-        {
-            _fruitController.OnUpFruit -= OnUpFruit;
         }
 
         public void Initialize()
@@ -44,14 +35,6 @@ namespace Code
             
             button.ChangeInteractable(false);
             _currentFruitType = typeFruit;
-        }
-
-        private void OnUpFruit(FruitType upFruitType)
-        {
-            if (upFruitType != _currentFruitType)
-            {
-                _gameManager.LossGame();
-            }
         }
 
         private void CreateButtons(List<FruitCell> fruits)

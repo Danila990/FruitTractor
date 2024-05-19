@@ -21772,7 +21772,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7ad73170a89cbc4aae901a32a1da59e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _testPcInput: 1
   _gridController: {fileID: 1563265825}
   _levelTimer: {fileID: 1267945514}
   _pagesController: {fileID: 659296050}

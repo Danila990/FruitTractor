@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 using Zenject;
 
 namespace Code
@@ -17,7 +15,12 @@ namespace Code
             _inputService = inputService;
             _inputService.OnInputDirection += OnUpdateDirection;
         }
-        
+
+        private void OnDestroy()
+        {
+            _inputService.OnInputDirection -= OnUpdateDirection;
+        }
+
         public void OnCLickDirectionButton(DirectionArrowButton directionArrowButton)
         {
             _inputService.InvokeInputEvent(directionArrowButton._directionType);
@@ -25,6 +28,11 @@ namespace Code
 
         private void OnUpdateDirection(DirectionType directionType)
         {
+            if (!gameObject.activeInHierarchy)
+            {
+                return;
+            }
+
             ActivateAllButtons();
             foreach (var button in _directionButtonData)
             {

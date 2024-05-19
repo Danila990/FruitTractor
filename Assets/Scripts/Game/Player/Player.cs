@@ -25,7 +25,6 @@ namespace Code
             _gameManager = gameManager;
             _gridController = controller;
             _inputService = inputService;
-            _inputService.OnInputDirection += InputDirection;
             _gameManager.OnStartGame += OnStartGame;
         }
 
@@ -45,6 +44,7 @@ namespace Code
 
         private void OnStartGame()
         {
+            _inputService.OnInputDirection += InputDirection;
             _virtualCamera.gameObject.SetActive(true);
             _isStartGame = true;
         }

@@ -6,7 +6,6 @@ namespace Code
 {
     public class GameInstaller : MonoInstaller
     {
-        [SerializeField] private bool _testPcInput = true;
         [SerializeField] private GridController _gridController;
         [SerializeField] private LevelTimer _levelTimer;
         [SerializeField] private GamePagesController _pagesController;
@@ -58,11 +57,11 @@ namespace Code
 
         private void BindInputService()
         {
-            if (_testPcInput || YandexGame.EnvironmentData.isDesktop)
+            if (YandexGame.EnvironmentData.isMobile)
             {
                 Container.
                     Bind<IInputService>()
-                    .To<PcInputService>().
+                    .To<MobileInputService>().
                     FromNewComponentOnNewGameObject()
                     .AsSingle();
             }
@@ -70,7 +69,7 @@ namespace Code
             {
                 Container.
                     Bind<IInputService>()
-                    .To<MobileInputService>().
+                    .To<PcInputService>().
                     FromNewComponentOnNewGameObject()
                     .AsSingle();
             }
